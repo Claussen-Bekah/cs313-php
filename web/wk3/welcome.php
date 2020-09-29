@@ -11,7 +11,7 @@
     <body>
 
     <p>Name: <?php echo $_POST["name"]; ?> </p>
-    <p>Your email address is: <?php echo $_POST["email"]; ?></p>
+    <p>Your email address is: <a href=":mailto<?php echo $_POST["email"]; ?>"></a></p>
     <p>Your major is: <?php echo $_POST["major"]; ?></p>
     <p>Comments: <?php echo $_POST["comments"]; ?></p>
 
