@@ -1,0 +1,114 @@
+body {
+    width: 95%;
+    margin: auto;
+}
+
+img {
+    max-width: 200px;
+}
+
+.browse-images,
+.cart-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr .5fr;
+
+
+}
+
+header {
+    background-color: rgb(175, 176, 177);
+    padding: 20px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+}
+
+.hidden {
+    display: none;
+}
+
+h1,
+h2 {
+    font-family: 'Sansita Swashed', cursive;
+}
+
+h1 {
+    color: white;
+}
+
+h3,
+p,
+a,
+input,
+label,
+figcaption {
+    font-family: 'Raleway', sans-serif;
+}
+
+figure {
+    display: flex;
+    align-items: center;
+}
+
+img {
+    margin-right: 10px;
+}
+
+input[type=submit] {
+    background-color: #ffcc66;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    text-align: center;
+    transition: .3s;
+}
+
+input[type=submit]:hover {
+    background-color: #c59a44;
+}
+
+a {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    font-size: 1.5em;
+    background-color: rgb(175, 176, 177);
+    transition: .3s;
+    border-radius: 5px;
+}
+
+a:hover {
+    color: #c59a44;
+    background-color: rgb(46, 46, 46);
+}
+
+.cart-img {
+    width: 50px;
+}
+
+footer {
+    margin-top: 50px;
+}
+
+.checkout-form {
+    padding-top: 30px;
+}
+
+input[type=text]:not(.hidden) {
+    width: 200px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.zip {
+    margin-top: 10px;
+}
