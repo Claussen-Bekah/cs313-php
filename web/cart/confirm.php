@@ -32,6 +32,7 @@ include("products.php");
     </div>
 
     <?php
+        $_SESSION['cart'] = array();
 
         function sanitizeInput($input) {
             return htmlspecialchars($input);
