@@ -33,14 +33,12 @@ include("connect.php");
 
         $listDisplayId = $_POST[$listId];
 
-        $stmt = $db->prepare('SELECT * FROM listitem WHERE list_id=:listDisplayId');
-        $stmt->bindValue(':listDisplayId ', $listDisplayId , PDO::PARAM_INT);
-        $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+        // $stmt = $db->prepare('SELECT * FROM listitem WHERE list_id=:listDisplayId');
+        // $stmt->bindValue(':listDisplayId ', $listDisplayId , PDO::PARAM_INT);
+        // $stmt->execute();
+        // $rows = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 
         echo $listDisplayId;
-
-       
 
     ?>
 
