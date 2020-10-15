@@ -7,7 +7,6 @@ $eerie-black: #252422ff; */
 body {
     width: 95%;
     margin: auto;
-    background-image: url("images/grains.jpg");
 }
 
 ul {
@@ -19,18 +18,18 @@ ul {
 nav {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    padding-top: 20px;
 }
 
 .navImg {
     max-width: 100px;
 }
 
-nav ul {
+/* nav ul {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
-}
+} */
 
 #itemList {
     padding-top: 20px;
@@ -38,11 +37,21 @@ nav ul {
 
 h1 {
     font-family: "Abril Fatface";
-    font-size: 1.5em;
+    font-size: 3em;
 }
 
-li, h2 {
+li, h2, h3, h4 {
     font-family: "Open Sans"
+}
+
+a {
+    text-decoration: none;
+    transition: cubic-bezier(1, 0, 0, 1) .3sec;
+
+}
+
+a:hover {
+    text-decoration: solid;
 }
 
 
