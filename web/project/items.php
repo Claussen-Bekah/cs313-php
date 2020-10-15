@@ -1,7 +1,5 @@
 <?php
 
-
-
 include("connect.php");
 
 
@@ -35,41 +33,37 @@ $catList .= '</select>';
 
 <body>
 
-<header>
+    <header>
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/project/header.php'; ?>
-</header>
+    </header>
 
-<h1>Current Stocks</h1>
-<h4>at a glance</h4>
+    <h1>Current Stocks</h1>
+    <h4>at a glance</h4>
 
-<?php
-$statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id');
-
-
-
-while ($newRow = $statement->fetch(PDO::FETCH_ASSOC))
-{
-    $description = $newRow['item_description'];
-    $amount = $newRow['current_amount'];
-    $unit = $newRow['unit_name'];
-    $categoryName = $newRow['category_name'];
-
-  $itemDetails = '<ul><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
-
-  echo $itemDetails;
-}
-
-?> 
-
-<form method="post">
-    <label for="categoryId">Search by Category:</label>
     <?php
-        echo $catList;
-    ?>
-    <input type="submit" value="Search" name="submit">
-</form>
+        $statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id');
 
-<?php
+        while ($newRow = $statement->fetch(PDO::FETCH_ASSOC))
+        {
+            $description = $newRow['item_description'];
+            $amount = $newRow['current_amount'];
+            $unit = $newRow['unit_name'];
+            $categoryName = $newRow['category_name'];
+
+            $itemDetails = '<ul><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
+
+            echo $itemDetails;
+        }
+
+    ?>
+
+    <form method="post">
+        <label for="categoryId">Search by Category:</label>
+        <?php echo $catList; ?>
+        <input type="submit" value="Search" name="submit">
+    </form>
+
+    <?php
     if(isset($_POST['submit'])){   
 
         $categoryId = $_POST['categoryId'];
@@ -94,8 +88,7 @@ while ($newRow = $statement->fetch(PDO::FETCH_ASSOC))
 
 ?>
 
-
-
+<script> history.pushState({}, "", "")</script>
 
 
 </body>
