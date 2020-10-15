@@ -6,17 +6,14 @@ include("connect.php");
 
 $_SESSION['item'] = array();
 
-function buildCategoryList($categories){ 
-    $catList = '<select name="categoryId" id="categoryList">'; 
-    $catList .= "<option>Choose a Category</option>"; 
-    foreach ($categories as $category) { 
-     $catList .= "<option value='$category[categoryId]'>$category[categoryName]</option>"; 
-    } 
-    $catList .= '</select>'; 
-    return $catList; 
-}
+        $catList = "<select name='categoryId' id='categoryId'>";
+        foreach ($db->query('SELECT id, category_name FROM category') as $category){
 
-
+            $catList .= "<option value='$category[id]'";
+        
+            $catList.= ">$category[category_name]</option>";
+        }
+        $catList .= '</select>';
 
 
 ?>
@@ -54,18 +51,8 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 <form method="post">
     <label for="categoryId">Search by Category:</label>
     <?php
-        $catList = "<select name='categoryId' id='categoryId'>";
-        foreach ($db->query('SELECT id, category_name FROM note_user') as $category){
-
-            $catList .= "<option value='$category[id]'";
-        
-            $catList.= ">$category[category_name]</option>";
-        }
-        $catList .= '</select>';
-
         echo $catList;
     ?>
-
     <input type="submit" value="Search" name="submit">
 </form>
 
