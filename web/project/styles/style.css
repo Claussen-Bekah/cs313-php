@@ -7,6 +7,7 @@ $eerie-black: #252422ff; */
 body {
     width: 95%;
     margin: auto;
+    background-image: url("images/grains.jpg");
 }
 
 ul {
@@ -18,7 +19,7 @@ ul {
 nav {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .navImg {
@@ -29,3 +30,17 @@ nav ul {
     display: flex;
     flex-flow: row nowrap;
 }
+
+li {
+    padding-top: 20px;
+}
+
+h1 {
+    font-family: "Abril Fatface";
+    font-size: 1.5em;
+}
+
+
+/* add space between li */
+/* change header font size and text */
+/* add background photo */

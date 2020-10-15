@@ -15,10 +15,12 @@
     <header>
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/project/header.php'; ?>
     </header>
+<main class="frontMain">
 
 <h1>Welcome to Cache</h1>
 <h2>Food Storage Management: A Better Way</h2>
 <h3>Track all your food storage, make grocery lists, update, and repeat</h3>
+</main>
 
 
     
