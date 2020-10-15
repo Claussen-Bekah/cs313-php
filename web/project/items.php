@@ -79,7 +79,7 @@ $catList .= '</select>';
             $unit = $row['unit_name'];
             $categoryName = $row['category_name'];
 
-        $searchDetails = '<ul><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
+        $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
 
         echo $searchDetails;
         }

@@ -36,7 +36,7 @@ $list_id = $_GET['id'];
            $description = $row['item_description'];
            $toBuy = $row['buy_amount'];
 
-       $searchDetails = '<ul><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li></ul>';
+       $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li></ul>';
 
        echo $searchDetails;
        }
