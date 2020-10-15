@@ -32,7 +32,7 @@ $_SESSION['item'] = array();
 <h4>at a glance</h4>
 
 <?php
-$statement = $db->query('SELECT * FROM item JOIN category, unit ON item.category_id=category.id AND item.unit_id=unit.id');
+$statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id');
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
   echo '<ul><li>Item: ' . $row['item_description'] . '</li><li>Amount: ' . $row['current_amount'] . ' ' . $row['unit_name'] . '</li><li>Category: ' . $row['category_name'] . '</li></ul>';
