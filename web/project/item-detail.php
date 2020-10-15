@@ -23,6 +23,8 @@ $list_id = $_GET['id'];
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/project/header.php'; ?>
     </header>
 
+    <h1>Your Grocery List</h1>
+
     <?php
        $stmt = $db->prepare('SELECT * FROM listitem JOIN list ON listitem.list_id=list.id JOIN item ON listitem.item_id=item.id WHERE listitem.list_id = :list_id');
        $stmt->bindValue(':list_id', $list_id, PDO::PARAM_INT);
@@ -32,19 +34,16 @@ $list_id = $_GET['id'];
 
        foreach ($rows as $row) {
            $description = $row['item_description'];
-           $amount = $row['current_amount'];
-           $unit = $row['unit_name'];
-           $categoryName = $row['category_name'];
+           $toBuy = $row['buy_amount'];
 
-       $searchDetails = '<ul><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
+       $searchDetails = '<ul><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li></ul>';
 
        echo $searchDetails;
        }
 
     ?>
 
-    <h1>Current Lists</h1>
-    <h4>at a glance</h4>
+   
 
     
 
