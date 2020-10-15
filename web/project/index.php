@@ -13,7 +13,7 @@
 <body>
 
     <header>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . 'header.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/project/header.php'; ?>
     </header>
 
 <h1>Welcome to Cache</h1>
