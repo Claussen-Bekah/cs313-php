@@ -47,12 +47,12 @@ $statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=ca
 
 
 
-while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+while ($newRow = $statement->fetch(PDO::FETCH_ASSOC))
 {
-    $description = $row['item_description'];
-    $amount = $row['current_amount'];
-    $unit = $row['unit_name'];
-    $categoryName = $row['category_name'];
+    $description = $newRow['item_description'];
+    $amount = $newRow['current_amount'];
+    $unit = $newRow['unit_name'];
+    $categoryName = $newRow['category_name'];
 
   $itemDetails = '<ul><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
 
@@ -74,16 +74,16 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 
         $categoryId = $_POST['categoryId'];
 
-        $searchStatement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id WHERE category.id = :categoryId ');
+        $stmt = $db->prepare('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id WHERE category.id = :categoryId');
+        $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
-
-        while ($newRow = $searchStatement->fetch(PDO::FETCH_ASSOC))
-        {
-            $description = $newRow['item_description'];
-            $amount = $newRow['current_amount'];
-            $unit = $newRow['unit_name'];
-            $categoryName = $newRow['category_name'];
+        foreach ($rows as $row) {
+            $description = $row['item_description'];
+            $amount = $row['current_amount'];
+            $unit = $row['unit_name'];
+            $categoryName = $row['category_name'];
 
         $searchDetails = '<ul><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
 
