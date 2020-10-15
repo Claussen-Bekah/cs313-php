@@ -1,6 +1,23 @@
-$satin-sheen-gold: #c8963eff;
+/* $satin-sheen-gold: #c8963eff;
 $dark-moss-green: #52602eff;
 $old-lace: #fffaebff;
 $black-olive: #403d39ff;
-$eerie-black: #252422ff;
+$eerie-black: #252422ff; */
+
+body {
+    width: 95%;
+    margin: auto;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
 
