@@ -6,6 +6,18 @@ include("connect.php");
 
 $_SESSION['item'] = array();
 
+function buildCategoryList($categories){ 
+    $catList = '<select name="categoryId" id="categoryList">'; 
+    $catList .= "<option>Choose a Category</option>"; 
+    foreach ($categories as $category) { 
+     $catList .= "<option value='$category[categoryId]'>$category[categoryName]</option>"; 
+    } 
+    $catList .= '</select>'; 
+    return $catList; 
+}
+
+
+
 
 ?>
 <!DOCTYPE html>
@@ -40,14 +52,28 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 ?> 
 
 <form method="post">
-    <label for="number">Search by Item Amount:</label><input type="text" name="number">
+    <label for="categoryId">Search by Category:</label>
+    <?php
+        $catList = "<select name='categoryId' id='categoryId'>"
+        foreach ($db->query('SELECT id, category_name FROM note_user') as $category){
+
+            $catList .= "<option value='$category[id]'";
+        
+            $catList.= ">$category[category_name]</option>";
+        }
+        $catList .= '</select>';
+
+        echo $catList;
+    ?>
+
     <input type="submit" value="Search" name="submit">
 </form>
+
+
 
 <?php
 if(isset($_POST['submit'])){
     $statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id WHERE current_amount=:amount');
-
     $stmt->bindValue(':amount', $amount, PDO::PARAM_INT);
     $stmt->execute();
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
