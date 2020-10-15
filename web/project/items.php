@@ -1,19 +1,18 @@
 <?php
 
-session_start();
+
 
 include("connect.php");
 
-$_SESSION['item'] = array();
 
-        $catList = "<select name='categoryId' id='categoryId'>";
-        foreach ($db->query('SELECT id, category_name FROM category') as $category){
+$catList = "<select name='categoryId' id='categoryId'>";
+    foreach ($db->query('SELECT id, category_name FROM category') as $category){
 
-            $catList .= "<option value='$category[id]'";
+        $catList .= "<option value='$category[id]'";
         
-            $catList.= ">$category[category_name]</option>";
-        }
-        $catList .= '</select>';
+        $catList.= ">$category[category_name]</option>";
+    }
+$catList .= '</select>';
 
 
 ?>
@@ -42,10 +41,18 @@ $_SESSION['item'] = array();
 
 <?php
 $statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id');
+$description = $row['item_description'];
+$amount = $row['current_amount'];
+$unit = $row['unit_name'];
+$categoryName = $row['category_name'];
+
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
-  echo '<ul><li>Item: ' . $row['item_description'] . '</li><li>Amount: ' . $row['current_amount'] . ' ' . $row['unit_name'] . '</li><li>Category: ' . $row['category_name'] . '</li></ul>';
+  $itemDetails = '<ul><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
+
+  echo $itemDetails;
 }
+
 ?> 
 
 <form method="post">
@@ -56,20 +63,11 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     <input type="submit" value="Search" name="submit">
 </form>
 
-
-
 <?php
-if(isset($_POST['submit'])){
-    $statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id WHERE current_amount=:amount');
-    $stmt->bindValue(':amount', $amount, PDO::PARAM_INT);
-    $stmt->execute();
-    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // if(isset($_POST['submit'])){                           
+    //     echo ;
+    // }   
 
-    foreach ($row as $rows)
-    {
-    echo '<ul><li>Item: ' . $row['item_description'] . '</li><li>Amount: ' . $row['current_amount'] . ' ' . $row['unit_name'] . '</li><li>Category: ' . $row['category_name'] . '</li></ul>';
-    }
-}
 ?>
 
 
