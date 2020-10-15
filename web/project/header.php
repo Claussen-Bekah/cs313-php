@@ -1,5 +1,6 @@
-<h1>Cache</h1>
+
 <nav>
+<a href="index.php"><img src="images/logo.png" alt="cache logo"></a>
 <ul>
 <li><a href="items.php">Storage Items</a></li>
 <li><a href="list.php">Grocery Lists</a></li>
