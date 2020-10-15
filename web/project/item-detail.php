@@ -29,18 +29,17 @@ $list_id = $_GET['id'];
        $stmt->execute();
        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-       echo $list_id;
 
-    //    foreach ($rows as $row) {
-    //        $description = $row['item_description'];
-    //        $amount = $row['current_amount'];
-    //        $unit = $row['unit_name'];
-    //        $categoryName = $row['category_name'];
+       foreach ($rows as $row) {
+           $description = $row['item_description'];
+           $amount = $row['current_amount'];
+           $unit = $row['unit_name'];
+           $categoryName = $row['category_name'];
 
-    //    $searchDetails = '<ul><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
+       $searchDetails = '<ul><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
 
-    //    echo $searchDetails;
-    //    }
+       echo $searchDetails;
+       }
 
     ?>
 
