@@ -32,28 +32,30 @@ $_SESSION['item'] = array();
 <h4>at a glance</h4>
 
 <?php
-// $statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id');
-// while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-// {
-//   echo '<ul><li>Item: ' . $row['item_description'] . '</li><li>Amount: ' . $row['current_amount'] . ' ' . $row['unit_name'] . '</li><li>Category: ' . $row['category_name'] . '</li></ul>';
-// }
+$statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id');
+while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+{
+  echo '<ul><li>Item: ' . $row['item_description'] . '</li><li>Amount: ' . $row['current_amount'] . ' ' . $row['unit_name'] . '</li><li>Category: ' . $row['category_name'] . '</li></ul>';
+}
 ?> 
 
 <form method="post">
     <label for="number">Search by Item Amount:</label><input type="text" name="number">
-    <input type="submit" value="Search" name="orderAmount">
+    <input type="submit" value="Search" name="submit">
 </form>
 
 <?php
-$statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id WHERE current_amount=:amount');
+if(isset($_POST['submit'])){
+    $statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id WHERE current_amount=:amount');
 
-$stmt->bindValue(':amount', $amount, PDO::PARAM_INT);
-$stmt->execute();
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->bindValue(':amount', $amount, PDO::PARAM_INT);
+    $stmt->execute();
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-{
-  echo '<ul><li>Item: ' . $row['item_description'] . '</li><li>Amount: ' . $row['current_amount'] . ' ' . $row['unit_name'] . '</li><li>Category: ' . $row['category_name'] . '</li></ul>';
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+    {
+    echo '<ul><li>Item: ' . $row['item_description'] . '</li><li>Amount: ' . $row['current_amount'] . ' ' . $row['unit_name'] . '</li><li>Category: ' . $row['category_name'] . '</li></ul>';
+    }
 }
 ?>
 
