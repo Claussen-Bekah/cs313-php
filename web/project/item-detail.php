@@ -2,6 +2,8 @@
 
 include("connect.php");
 
+$list_id = $_GET['id'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,23 +24,23 @@ include("connect.php");
     </header>
 
     <?php
-        $statement = $db->query('SELECT id, list_name, creation_date FROM list');
+       $stmt = $db->prepare('SELECT * FROM listitem JOIN list ON listitem.list_id=list.id JOIN item ON listitem.item_id=item.id WHERE listitem.list_id = :list_id');
+       $stmt->bindValue(':list_id', $list_id, PDO::PARAM_INT);
+       $stmt->execute();
+       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-        {
-            $listId = $row['id'];
-            $listName = $row['list_name'];
-            $creationDate = $row['creation_date'];
-        }
+       echo $list_id;
 
-        $listDisplayId = $_POST[$listId];
+    //    foreach ($rows as $row) {
+    //        $description = $row['item_description'];
+    //        $amount = $row['current_amount'];
+    //        $unit = $row['unit_name'];
+    //        $categoryName = $row['category_name'];
 
-        // $stmt = $db->prepare('SELECT * FROM listitem WHERE list_id=:listDisplayId');
-        // $stmt->bindValue(':listDisplayId ', $listDisplayId , PDO::PARAM_INT);
-        // $stmt->execute();
-        // $rows = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+    //    $searchDetails = '<ul><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
 
-        echo $listDisplayId;
+    //    echo $searchDetails;
+    //    }
 
     ?>
 
