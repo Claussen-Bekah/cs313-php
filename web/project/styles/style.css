@@ -21,3 +21,11 @@ nav {
     justify-content: space-between;
 }
 
+.navImg {
+    max-width: 100px;
+}
+
+nav ul {
+    display: flex;
+    flex-flow: row nowrap;
+}
