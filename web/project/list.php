@@ -32,7 +32,7 @@ include("connect.php");
             $listName = $row['list_name'];
             $creationDate = $row['creation_date'];
 
-            $itemDetails = '<ul class="listList"><li>Name: ' . $listName . '</li><li>Date Created: ' . $creationDate. '</li><li><form method="post" action="item-detail.php"><input type="submit" value="View List Details" name="' . $listId . '"></form></li></ul>';
+            $itemDetails = '<ul class="listList"><li>Name: ' . $listName . '</li><li>Date Created: ' . $creationDate. '</li><li><a href="item-detail.php?id=' . $listId . '">See List Details</a>';
 
             echo $itemDetails;
         }
