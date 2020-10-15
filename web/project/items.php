@@ -41,13 +41,16 @@ $catList .= '</select>';
 
 <?php
 $statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id');
-$description = $row['item_description'];
-$amount = $row['current_amount'];
-$unit = $row['unit_name'];
-$categoryName = $row['category_name'];
+
+
 
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
+    $description = $row['item_description'];
+    $amount = $row['current_amount'];
+    $unit = $row['unit_name'];
+    $categoryName = $row['category_name'];
+
   $itemDetails = '<ul><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
 
   echo $itemDetails;
