@@ -22,7 +22,7 @@ nav {
 }
 
 .navImg {
-    max-width: 100px;
+    max-width: 200px;
 }
 
 /* nav ul {
@@ -46,12 +46,12 @@ li, h2, h3, h4 {
 
 a {
     text-decoration: none;
-    transition: cubic-bezier(1, 0, 0, 1) .3sec;
+    transition: .3sec;
 
 }
 
 a:hover {
-    text-decoration: solid;
+    font-size: 1.25em;
 }
 
 
