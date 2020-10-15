@@ -36,7 +36,7 @@ $catList .= '</select>';
 <body>
 
 <header>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . 'header.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/project/header.php'; ?>
 </header>
 
 <h1>Current Stocks</h1>
@@ -89,7 +89,6 @@ while ($newRow = $statement->fetch(PDO::FETCH_ASSOC))
 
         echo $searchDetails;
         }
-
         
     }   
 
