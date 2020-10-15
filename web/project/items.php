@@ -8,9 +8,12 @@ include("connect.php");
 $catList = "<select name='categoryId' id='categoryId'>";
     foreach ($db->query('SELECT id, category_name FROM category') as $category){
 
-        $catList .= "<option value='$category[id]'";
+        $categoryListId = $category['id'];
+        $categoryName = $category['category_name'];
+
+        $catList .= "<option value='$categoryListId'";
         
-        $catList.= ">$category[category_name]</option>";
+        $catList.= ">$categoryName</option>";
     }
 $catList .= '</select>';
 
@@ -67,9 +70,28 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 </form>
 
 <?php
-    // if(isset($_POST['submit'])){                           
-    //     echo ;
-    // }   
+    if(isset($_POST['submit'])){   
+
+        $categoryId = $_POST['categoryId'];
+
+        $searchStatement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id WHERE category.id = :categoryId ');
+
+
+
+        while ($newRow = $searchStatement->fetch(PDO::FETCH_ASSOC))
+        {
+            $description = $newRow['item_description'];
+            $amount = $newRow['current_amount'];
+            $unit = $newRow['unit_name'];
+            $categoryName = $newRow['category_name'];
+
+        $searchDetails = '<ul><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
+
+        echo $searchDetails;
+        }
+
+        
+    }   
 
 ?>
 
