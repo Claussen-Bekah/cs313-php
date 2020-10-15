@@ -52,7 +52,7 @@ if(isset($_POST['submit'])){
     $stmt->execute();
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+    foreach ($row as $rows)
     {
     echo '<ul><li>Item: ' . $row['item_description'] . '</li><li>Amount: ' . $row['current_amount'] . ' ' . $row['unit_name'] . '</li><li>Category: ' . $row['category_name'] . '</li></ul>';
     }
