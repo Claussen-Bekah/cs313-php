@@ -46,12 +46,13 @@ li, h2, h3, h4 {
 
 a {
     text-decoration: none;
+    font-size: 1em;
     transition: font-size .5sec;
 
 }
 
 a:hover {
-    font-size: 1.25em;
+    font-size: 1.15em;
 }
 
 
