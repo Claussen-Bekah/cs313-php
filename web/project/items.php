@@ -54,7 +54,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 <form method="post">
     <label for="categoryId">Search by Category:</label>
     <?php
-        $catList = "<select name='categoryId' id='categoryId'>"
+        $catList = "<select name='categoryId' id='categoryId'>";
         foreach ($db->query('SELECT id, category_name FROM note_user') as $category){
 
             $catList .= "<option value='$category[id]'";
