@@ -46,7 +46,7 @@ li, h2, h3, h4 {
 
 a {
     text-decoration: none;
-    transition: .3sec;
+    transition: font-size .5sec;
 
 }
 
