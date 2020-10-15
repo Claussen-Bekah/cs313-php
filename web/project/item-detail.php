@@ -1,6 +1,7 @@
 <?php
 
 include("connect.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,23 +21,33 @@ include("connect.php");
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/project/header.php'; ?>
     </header>
 
-    <h1>Current Lists</h1>
-    <h4>at a glance</h4>
-
     <?php
-        $statement = $db->query('SELECT list_name, creation_date FROM list');
+        $statement = $db->query('SELECT id, list_name, creation_date FROM list');
 
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
         {
+            $listId = $row['id'];
             $listName = $row['list_name'];
             $creationDate = $row['creation_date'];
-
-            $itemDetails = '<ul class="listList"><li>Name: ' . $listName . '</li><li>Date Created: ' . $creationDate. '</li></ul>';
-
-            echo $itemDetails;
         }
 
+        $listDisplayId = $_POST[$listId];
+
+        $stmt = $db->prepare('SELECT * FROM listitem WHERE list_id=:listDisplayId');
+        $stmt->bindValue(':listDisplayId ', $listDisplayId , PDO::PARAM_INT);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+        echo $listDisplayId;
+
+       
+
     ?>
+
+    <h1>Current Lists</h1>
+    <h4>at a glance</h4>
+
+    
 
 </body>
 </html>
