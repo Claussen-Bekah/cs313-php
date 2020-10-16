@@ -38,6 +38,7 @@ nav {
 h1 {
     font-family: "Abril Fatface";
     font-size: 3em;
+    margin-bottom: 0;
 }
 
 li, h2, h3, h4 {
@@ -53,6 +54,14 @@ a {
 
 a:hover {
     font-size: 1.15em;
+}
+
+ul{
+    padding-top: 20px;
+}
+
+ul:last-child {
+    border: 2px #52602eff solid;
 }
 
 
