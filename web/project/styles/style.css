@@ -11,8 +11,8 @@ body {
 
 ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 nav {
@@ -25,11 +25,9 @@ nav {
     max-width: 200px;
 }
 
-/* nav ul {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
-} */
+nav ul a {
+    margin-bottom: 10px;
+}
 
 #itemList {
     padding-top: 20px;
