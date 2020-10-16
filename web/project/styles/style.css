@@ -1,8 +1,4 @@
-/* $satin-sheen-gold: #c8963eff;
-$dark-moss-green: #52602eff;
-$old-lace: #fffaebff;
-$black-olive: #403d39ff;
-$eerie-black: #252422ff; */
+
 
 body {
     width: 95%;
@@ -63,7 +59,8 @@ ul:last-child {
 }
 
 
-
-/* add space between li */
-/* change header font size and text */
-/* add background photo */
+/* $satin-sheen-gold: #c8963eff;
+$dark-moss-green: #52602eff;
+$old-lace: #fffaebff;
+$black-olive: #403d39ff;
+$eerie-black: #252422ff; */
