@@ -128,7 +128,7 @@ hr {
 
 input[type=submit] {
     padding: 0.3em 1.2em;
-    margin-top: 10px;
+    margin-top: 20px;
     max-width: 100px;
     border-radius: 2em;
     border: none;
@@ -145,10 +145,6 @@ input[type=submit]:hover {
     background-color: #403d39ff;
 }
 
-.itemList {
-    border-bottom: 2px #403d39ff solid;
-    max-width: 200px;
-}
 
 /* $satin-sheen-gold: #c8963eff;
 $dark-moss-green: #52602eff;
