@@ -17,12 +17,14 @@
     </header>
 <main class="frontMain">
 
+<!-- <div class="background">
+<img class="backgroundImg" src="images/grains.png" alt="grains">
+</div> -->
+
 <h1>Welcome to Cache</h1>
 <h2>Food Storage Management: A Better Way</h2>
 <h3>Track all your food storage, make grocery lists, update, and repeat</h3>
-<div class="background">
-<img class="backgroundImg" src="images/grains.png" alt="grains">
-</div>
+
 </main>
 
 
