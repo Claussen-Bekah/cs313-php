@@ -127,9 +127,9 @@ hr {
 }
 
 input[type=submit] {
-    padding: 1em 3em;
+    padding: 1em;
     margin-top: 20px;
-    max-width: 100px;
+    max-width: 150px;
     border-radius: 2em;
     border: none;
     text-decoration: none;

@@ -3,7 +3,7 @@
 include("connect.php");
 
 
-$catList = "<select name='categoryId' id='categoryId'>";
+$catList = "<select name='categoryId' id='categoryId'><option disabled selected value> -- select an option -- </option>";
     foreach ($db->query('SELECT id, category_name FROM category') as $category){
 
         $categoryListId = $category['id'];
