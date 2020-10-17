@@ -16,7 +16,8 @@ ul {
 nav {
     display: flex;
     flex-flow: row nowrap;
-    padding-top: 20px;
+    padding: 0px 20px;
+
 }
 
 .navImg {
@@ -37,7 +38,7 @@ h1 {
     margin-bottom: 0;
 }
 
-li, h2, h3, h4 {
+li, h2, h3, h4, label {
     font-family: "Open Sans"
 }
 
@@ -52,22 +53,17 @@ a:hover {
     font-size: 1.15em;
 }
 
-ul{
+ul:not(nav ul){
     padding-top: 20px;
 }
 
 nav ul li {
     border-bottom: 2px #c8963eff solid;
+    margin-bottom: 10px;
 }
 
-.background {
-    position: relative
-}
-
-.background img {
-    position: absolute;
-    top: 0px;
-    right: 0px;
+.mainHeaders {
+    padding-top: 50px;
 }
 
 
