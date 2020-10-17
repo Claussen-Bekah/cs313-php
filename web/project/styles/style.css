@@ -16,7 +16,8 @@ ul {
 nav {
     display: flex;
     flex-flow: row nowrap;
-    padding: 0px 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
 }
 
@@ -38,19 +39,29 @@ h1 {
     margin-bottom: 0;
 }
 
-li, h2, h3, h4, label {
+li, h2, h3, h4 {
     font-family: "Open Sans"
+}
+
+label {
+
+}
+
+h4{
+    margin-top: 0;
 }
 
 a {
     text-decoration: none;
-    font-size: 1em;
+    color: black;
+    background-color: none;
     transition: all 1sec ease-out;
 
 }
 
 a:hover {
-    font-size: 1.15em;
+    color: #fffaebff;
+    background-color: #403d39ff;
 }
 
 ul:not(nav ul){

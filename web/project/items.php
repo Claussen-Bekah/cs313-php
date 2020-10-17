@@ -72,8 +72,11 @@ $catList .= '</select>';
         $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($rows as $row) {
+        if(!$rows){
+            echo '<p>No items found</p>';
+        }
+        else {
+            foreach ($rows as $row) {
             $description = $row['item_description'];
             $amount = $row['current_amount'];
             $unit = $row['unit_name'];
@@ -82,6 +85,7 @@ $catList .= '</select>';
         $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
 
         echo $searchDetails;
+            }
         }
         
     }   
