@@ -73,7 +73,7 @@ $catList .= '</select>';
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if(!$rows){
-            echo '<p>No items found</p>';
+            echo '<p class="error">No items found</p>';
         }
         else {
             foreach ($rows as $row) {

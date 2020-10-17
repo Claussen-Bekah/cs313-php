@@ -31,15 +31,20 @@ $list_id = $_GET['id'];
        $stmt->execute();
        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        if(!$rows){
+            echo '<p class="error">No items found</p>';
+        }
+        else {
 
-       foreach ($rows as $row) {
-           $description = $row['item_description'];
-           $toBuy = $row['buy_amount'];
+            foreach ($rows as $row) {
+                $description = $row['item_description'];
+                $toBuy = $row['buy_amount'];
 
-       $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li></ul>';
+            $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li></ul>';
 
-       echo $searchDetails;
+            echo $searchDetails;
        }
+    }
 
     ?>
 

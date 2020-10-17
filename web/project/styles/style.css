@@ -44,11 +44,12 @@ li, h2, h3, h4 {
 }
 
 label {
-
+    font-family: "Abril Fatface";
 }
 
 h4{
     margin-top: 0;
+    border-bottom: 2px solid #403d39ff;
 }
 
 a {
@@ -70,11 +71,18 @@ ul:not(nav ul){
 
 nav ul li {
     border-bottom: 2px #c8963eff solid;
-    margin-bottom: 10px;
+    padding: 10px;
 }
 
 .mainHeaders {
     padding-top: 50px;
+}
+
+.error {
+    font-size: 1.25em;
+    color: #c8963eff;
+    font-family: "Open Sans";
+    font-weight: 100;
 }
 
 
