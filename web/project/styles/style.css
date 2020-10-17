@@ -54,8 +54,18 @@ ul{
     padding-top: 20px;
 }
 
-ul:last-child {
-    border: 2px #52602eff solid;
+nav ul li {
+    border-bottom: 2px #c8963eff solid;
+}
+
+.background {
+    position: relative
+}
+
+.background img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
 
