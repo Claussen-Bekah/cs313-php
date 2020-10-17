@@ -69,7 +69,7 @@ a {
 .navLink {
     color: black;
     background-color: none;
-    transition: all .5s ease-in;
+    transition: all .2s ease-in;
 }
 
 .navLink:hover {
@@ -105,7 +105,7 @@ nav ul li {
 
 select {
     width: 200px;
-    padding: 16px 20px;
+    padding: 16px 10px;
     border: none;
     border-radius: 4px;
     background-color: white;
@@ -115,6 +115,11 @@ select {
 form {
     display: flex;
     flex-flow: column nowrap;
+    margin-top: 20px;
+}
+
+form > * {
+    padding: 10px;
 }
 
 hr {
@@ -126,9 +131,8 @@ input[type=submit] {
     margin: 0 0.3em 0.3em 0;
     max-width: 100px;
     border-radius: 2em;
-    box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans';
     font-weight: 300;
     color: #FFFFFF;
     background-color: #52602eff;
@@ -138,7 +142,12 @@ input[type=submit] {
 
 
 input[type=submit]:hover {
-    background-color: #4095c6;
+    background-color: #403d39ff;
+}
+
+.itemList {
+    border-bottom: 2px #403d39ff solid;
+    max-width: 200px;
 }
 
 /* $satin-sheen-gold: #c8963eff;

@@ -74,7 +74,6 @@ $catList .= '</select>';
     }   
 
 ?>
-<hr>
 
     <?php
         $statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id');
