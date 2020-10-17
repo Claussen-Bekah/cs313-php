@@ -50,13 +50,16 @@ label {
 h4{
     margin-top: 0;
     border-bottom: 2px solid #403d39ff;
+    max-width: 75px;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: #52602eff;
     background-color: none;
     transition: all 1sec ease-out;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
 }
 
