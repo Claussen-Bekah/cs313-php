@@ -51,6 +51,8 @@ h4{
     margin-top: 0;
     border-bottom: 2px solid #403d39ff;
     max-width: 175px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 a {
@@ -61,11 +63,17 @@ a {
     padding-bottom: 10px;
 
 }
+.navLink {
+    color: black;
+    background-color: none;
+    transition: color 1sec ease-in, background-color 1sec ease-in;
+}
 
-nav a:hover {
+.navLink:hover {
     color: #fffaebff;
     background-color: #403d39ff;
     border-radius: 5%;
+    padding: 5px;
 }
 
 a:hover {
