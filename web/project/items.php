@@ -106,6 +106,7 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
 <form method="POST">
     <input type="text" name="item">
     <input type="number" name="amount">
+
     <h4>Unit:</h4>
     <?php
 
@@ -116,8 +117,8 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
                 $unitId = $row['id'];
                 $name = $row['unit_name'];
                 
-                $unitList = "<input type='radio' id='$unitId' name='unit' value='$unitId'>
-                <label for='$unitId'>$name</label>";
+                $unitList = "<label for='$unitId'>$name</label><input type='radio' id='$unitId' name='unit' value='$unitId'>";
+
                 echo $unitList;
             }
 
@@ -132,8 +133,7 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
             $categoryId = $row['id'];
             $categoryName = $row['category_name'];
 
-            $categoryList = "<input type='radio' id='$categoryId' name='category' value='$categoryId'>
-            <label for='$categoryId'>$categoryName</label>";
+            $categoryList = "<label for='$categoryId'>$categoryName</label><input type='radio' id='$categoryId' name='category' value='$categoryId'>";
             echo $categoryList;
         }
 
@@ -143,7 +143,6 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
 
 <?php
 
-    
 
     if(isset($_POST['submitItem'])){  
         $itemName = $_POST['item'];
