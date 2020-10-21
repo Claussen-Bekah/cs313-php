@@ -40,8 +40,8 @@ die();
 
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
         {
-            $topicListId = $topic['id'];
-            $name = $topic['name'];
+            $topicListId = $row['id'];
+            $name = $row['name'];
 
             $topicList = "<input type='checkbox' id='$topicListId' name='topic[]' value='$name'>
             <label for='$name'>$name</label>";
