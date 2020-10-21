@@ -35,16 +35,21 @@ die();
 </head>
 <body>
     <?php
-    foreach ($db->query('SELECT name FROM topic') as $topic){
 
-        $topicListId = $topic['id'];
-        $name = $topic['name'];
+        $statement = $db->query('SELECT name FROM topic');
 
-        $topicList = "<input type='checkbox' id='$topicListId' name='topic[]' value='$name'>
-        <label for='$name'>$name</label>";
-        
-    }
-    echo $topicList;
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+        {
+            $topicListId = $topic['id'];
+            $name = $topic['name'];
+
+            $topicList = "<input type='checkbox' id='$topicListId' name='topic[]' value='$name'>
+            <label for='$name'>$name</label>";
+            echo $topicList;
+        }
+
+
+
     ?>
     
 </body>
