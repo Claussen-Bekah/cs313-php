@@ -36,7 +36,7 @@ die();
 <body>
     <?php
 
-        $statement = $db->query('SELECT name FROM topic');
+        $statement = $db->query('SELECT * FROM topic');
 
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
         {
