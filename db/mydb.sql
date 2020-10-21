@@ -22,3 +22,7 @@ insert into item (item_description, img_path, current_amount, category_id, unit_
 insert into item (item_description, img_path, current_amount, category_id, unit_id) values ('Cheerios', 'images/cheerios.png', '5', (SELECT id from category WHERE category_name='Breakfast'), (SELECT id from unit WHERE unit_name='boxes'));
 
 insert into listitem (item_id, list_id, buy_amount) values ('1', '1', '3'), ('2', '1', '4');
+
+insert into category (category_name) values ('Produce');
+
+insert into item (item_description, img_path, current_amount, category_id, unit_id) values ('Steel Cut Oats', 'images/oats.png', '2', (SELECT id from category WHERE category_name='Breakfast'), (SELECT id from unit WHERE unit_name='pounds'));
