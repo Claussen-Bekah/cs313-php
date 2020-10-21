@@ -116,7 +116,7 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
                 $unitId = $row['id'];
                 $name = $row['unit_name'];
                 
-                $unitList .= "<input type='radio' id='$unitId' name='unit' value='$unitId'>
+                $unitList = "<input type='radio' id='$unitId' name='unit' value='$unitId'>
                 <label for='$unitId'>$name</label>";
                 echo $unitList;
             }
@@ -150,7 +150,7 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
         $itemNumber = $_POST['amount'];
         $unitId = $_POST['unit'];
         $categoryId = $_POST['category'];
-        
+
         newItem($itemName, $itemNumber, $unitId, $categoryId);
     }
 
