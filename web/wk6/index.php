@@ -34,6 +34,11 @@ die();
     <title>Document</title>
 </head>
 <body>
+    Book:<input type='text' name='book'>
+    Chapter:<input type='text' name='chapter'>
+    Verse:<input type="text" name='verse'>
+    Content:<input type='textarea' name='content'>
+
     <?php
 
         $statement = $db->query('SELECT * FROM topic');
