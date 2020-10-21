@@ -65,7 +65,7 @@ $catList .= '</select>';
                 $unit = $row['unit_name'];
                 $categoryName = $row['category_name'];
 
-                $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
+                $searchDetails = '<ul class="itemList"><li class="firstItem>' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
 
                 echo $searchDetails;
             }
@@ -74,6 +74,44 @@ $catList .= '</select>';
     }   
 
 ?>
+
+<h2>Add a new item</h2>
+
+<form method="POST">
+    <input type="text" name="item">
+    <input type="number" name="amount">
+    <?php
+
+            $statement = $db->query('SELECT * FROM unit');
+
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+            {
+                $unitId = $row['id'];
+                $name = $row['unit_name'];
+
+                $unitList = "<input type='radio' id='$unitId' name='unit' value='$name'>
+                <label for='$name'>$name</label>";
+                echo $unitList;
+            }
+
+        ?>
+
+    <?php
+
+        $statement = $db->query('SELECT * FROM category');
+
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+        {
+            $categoryId = $row['id'];
+            $categoryName = $row['category_name'];
+
+            $categoryList = "<input type='radio' id='$categoryId' name='unit' value='$categoryName'>
+            <label for='$categoryName'>$categoryName</label>";
+            echo $categoryList;
+        }
+
+    ?>
+</form>
 
 <h2>All Items</h2>
 

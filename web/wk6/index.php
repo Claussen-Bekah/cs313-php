@@ -21,10 +21,6 @@ echo 'Error!: ' . $ex->getMessage();
 die();
 }
 
-
-
-    
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,28 +30,30 @@ die();
     <title>Document</title>
 </head>
 <body>
-    Book:<input type='text' name='book'>
-    Chapter:<input type='text' name='chapter'>
-    Verse:<input type="text" name='verse'>
-    Content:<input type='textarea' name='content'>
+    <form method="POST" action="scriptures.php">
+        Book:<input type='text' name='book' id='book'>
+        Chapter:<input type='text' name='chapter' id='chapter'>
+        Verse:<input type="text" name='verse' id='verse'>
+        Content:<input type='textarea' name='content' id='content'>
 
-    <?php
+        <?php
 
-        $statement = $db->query('SELECT * FROM topic');
+            $statement = $db->query('SELECT * FROM topic');
 
-        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-        {
-            $topicListId = $row['id'];
-            $name = $row['name'];
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+            {
+                $topicListId = $row['id'];
+                $name = $row['name'];
 
-            $topicList = "<input type='checkbox' id='$topicListId' name='topic[]' value='$name'>
-            <label for='$name'>$name</label>";
-            echo $topicList;
-        }
+                $topicList = "<input type='checkbox' id='$topicListId' name='topic[]' value='$name'>
+                <label for='$name'>$name</label>";
+                echo $topicList;
+            }
 
+        ?>
 
-
-    ?>
+        <input type='submit' name='submit'>
+    </form>
     
 </body>
 </html>

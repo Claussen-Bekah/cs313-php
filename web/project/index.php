@@ -7,7 +7,10 @@
 
     <link rel="icon" href="images/favicon.png" type="image" sizes="16x16">
 
+    
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/background-image.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
