@@ -25,4 +25,3 @@ catch (PDOException $ex)
 }
 
 dataConnect();
-?>
