@@ -44,6 +44,54 @@ $catList .= '</select>';
 
     <div class="grid">
         <div class="grid1">
+            <h2>Add a new item</h2>
+
+            <form method="POST" action="newitem.php">
+                <label for="item">Item Name:</label><input type="text" name="item">
+                <label for="amount">Item Amount:</label><input type="number" name="amount">
+                <div class="radioDiv">
+                    <h4>Unit:</h4>
+                    <?php
+
+                        $statement = $db->query('SELECT * FROM unit');
+
+                        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+                        {
+                            $unitId = $row['id'];
+                            $name = $row['unit_name'];
+                            
+                            $unitList = "<label for='$unitId'><input type='radio' id='$unitId' name='unit' value='$unitId'>
+                            $name</label>";
+
+                            echo $unitList;
+                        }
+
+                    ?>
+                </div>
+                <div class="radioDiv">
+                    <h4>Category</h4>
+                    <?php
+
+                    $statement = $db->query('SELECT * FROM category');
+
+                    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+                    {
+                    $categoryId = $row['id'];
+                    $categoryName = $row['category_name'];
+
+                    $categoryList = "<label for='$categoryId'><input type='radio' id='$categoryId' name='category' value='$categoryId'>
+                    $categoryName</label>";
+                    echo $categoryList;
+                    }
+
+                    ?>
+                </div>
+                <input type="submit" name="submitItem">
+            </form>
+
+        </div>
+
+        <div class="grid2">
             <form class="categoryForm" method="post">
                 <label for="categoryId">Search by Category</label>
                 <?php echo $catList; ?>
@@ -78,54 +126,7 @@ $catList .= '</select>';
                 }   
 
             ?>
-        </div>
 
-        <div class="grid2">
-
-            <h2>Add a new item</h2>
-
-            <form method="POST" action="newitem.php">
-                <label for="item">Item Name:</label><input type="text" name="item">
-                <label for="amount">Item Amount:</label><input type="number" name="amount">
-                <div class="radioDiv">
-                    <h4>Unit:</h4>
-                    <?php
-
-            $statement = $db->query('SELECT * FROM unit');
-
-            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-            {
-                $unitId = $row['id'];
-                $name = $row['unit_name'];
-                
-                $unitList = "<label for='$unitId'><input type='radio' id='$unitId' name='unit' value='$unitId'>
-                $name</label>";
-
-                echo $unitList;
-            }
-
-        ?>
-                </div>
-                <div class="radioDiv">
-                    <h4>Category</h4>
-                    <?php
-
-        $statement = $db->query('SELECT * FROM category');
-
-        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-        {
-            $categoryId = $row['id'];
-            $categoryName = $row['category_name'];
-
-            $categoryList = "<label for='$categoryId'><input type='radio' id='$categoryId' name='category' value='$categoryId'>
-            $categoryName</label>";
-            echo $categoryList;
-        }
-
-    ?>
-                </div>
-                <input type="submit" name="submitItem">
-            </form>
         </div>
 
 
