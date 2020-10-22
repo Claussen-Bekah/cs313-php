@@ -41,8 +41,8 @@ function addScriptures($book, $chapter, $verse, $content, $topicId) {
     $stmt = $db->prepare($sql);
    
     $stmt->bindValue(':book', $book, PDO::PARAM_STR);
-    $stmt->bindValue(':chapter', $chapter, PDO::PARAM_INT);
-    $stmt->bindValue(':verse', $verse, PDO::PARAM_INT);
+    $stmt->bindValue(':chapter', $chapter, PDO::PARAM_STR);
+    $stmt->bindValue(':verse', $verse, PDO::PARAM_STR);
     $stmt->bindValue(':content', $content, PDO::PARAM_STR);
     $stmt->bindValue(':topic', $topic, PDO::PARAM_STR);
 
