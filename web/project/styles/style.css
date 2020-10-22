@@ -162,6 +162,10 @@ h2 {
     padding: 3px;
 }
 
+.rowDiv {
+    display: flex;
+}
+
 /* $satin-sheen-gold: #c8963eff;
 $dark-moss-green: #52602eff;
 $old-lace: #fffaebff;

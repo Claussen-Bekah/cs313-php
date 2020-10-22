@@ -51,6 +51,7 @@ $catList .= '</select>';
                     <label for="item">Item Name:<input type="text" name="item"></label>
                     <label for="amount">Item Amount:<input type="number" name="amount"></label>
                 </div>
+                <div class="rowFlex">
                 <div class="radioDiv">
                     <h4>Unit:</h4>
                     <?php
@@ -88,14 +89,15 @@ $catList .= '</select>';
 
                     ?>
                 </div>
+                </div>
                 <input type="submit" name="submitItem">
             </form>
 
         </div>
 
         <div class="grid2">
+        <h2>Search by Category</h2>
             <form class="categoryForm" method="post">
-                <label for="categoryId"><h2>Search by Category</h2></label>
                 <?php echo $catList; ?>
                 <input type="submit" value="Search" name="submit">
             </form>
