@@ -42,49 +42,54 @@ $catList .= '</select>';
     <h1>Current Stocks</h1>
     <h4>at a glance</h4>
 
-    <form class="categoryForm" method="post">
-        <label for="categoryId">Search by Category</label>
-        <?php echo $catList; ?>
-        <input type="submit" value="Search" name="submit">
-    </form>
+    <div class="grid">
+        <div class="grid1">
+            <form class="categoryForm" method="post">
+                <label for="categoryId">Search by Category</label>
+                <?php echo $catList; ?>
+                <input type="submit" value="Search" name="submit">
+            </form>
 
-    <?php
-    if(isset($_POST['submit'])){   
+            <?php
+                if(isset($_POST['submit'])){   
 
-        $categoryId = $_POST['categoryId'];
+                    $categoryId = $_POST['categoryId'];
 
-        $stmt = $db->prepare('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id WHERE category.id = :categoryId');
-        $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
-        $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        if(!$rows){
-            echo '<p class="error">No items found</p>';
-        }
-        else {
-            foreach ($rows as $row) {
-                $description = $row['item_description'];
-                $amount = $row['current_amount'];
-                $unit = $row['unit_name'];
-                $categoryName = $row['category_name'];
+                    $stmt = $db->prepare('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id WHERE category.id = :categoryId');
+                    $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
+                    $stmt->execute();
+                    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    if(!$rows){
+                        echo '<p class="error">No items found</p>';
+                    }
+                    else {
+                        foreach ($rows as $row) {
+                            $description = $row['item_description'];
+                            $amount = $row['current_amount'];
+                            $unit = $row['unit_name'];
+                            $categoryName = $row['category_name'];
 
-                $searchDetails = '<ul class="itemList"><li class="firstItem">' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
+                            $searchDetails = '<ul class="itemList"><li class="firstItem">' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
 
-                echo $searchDetails;
-            }
-        }
-        
-    }   
+                            echo $searchDetails;
+                        }
+                    }
+                    
+                }   
 
-?>
+            ?>
+        </div>
 
-<h2>Add a new item</h2>
+        <div class="grid2">
 
-<form method="POST" action="newitem.php">
-    <label for="item">Item Name:</label><input type="text" name="item">
-    <label for="amount">Item Amount:</label><input type="number" name="amount">
-    <div class="radioDiv">
-    <h4>Unit:</h4>
-    <?php
+            <h2>Add a new item</h2>
+
+            <form method="POST" action="newitem.php">
+                <label for="item">Item Name:</label><input type="text" name="item">
+                <label for="amount">Item Amount:</label><input type="number" name="amount">
+                <div class="radioDiv">
+                    <h4>Unit:</h4>
+                    <?php
 
             $statement = $db->query('SELECT * FROM unit');
 
@@ -100,10 +105,10 @@ $catList .= '</select>';
             }
 
         ?>
-        </div>
-        <div class="radioDiv">
-    <h4>Category</h4>
-    <?php
+                </div>
+                <div class="radioDiv">
+                    <h4>Category</h4>
+                    <?php
 
         $statement = $db->query('SELECT * FROM category');
 
@@ -118,14 +123,16 @@ $catList .= '</select>';
         }
 
     ?>
-    </div>
-    <input type="submit" name="submitItem">
-</form>
+                </div>
+                <input type="submit" name="submitItem">
+            </form>
+        </div>
 
 
-<h2>All Items</h2>
+        <div class="grid3">
+            <h2>All Items</h2>
 
-    <?php
+            <?php
         $statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id');
 
         while ($newRow = $statement->fetch(PDO::FETCH_ASSOC))
@@ -141,10 +148,14 @@ $catList .= '</select>';
         }
 
     ?>
+        </div>
+    </div>
 
-    
 
-<script> history.pushState({}, "", "")</script>
+
+    <script>
+        history.pushState({}, "", "")
+    </script>
 
 
 </body>

@@ -140,7 +140,7 @@ input[type=submit]:hover {
     background-color: #403d39ff;
 }
 
-input[type=text][type=number]{
+input[type=text], input[type=number]{
     max-width: 200px;
     margin: 10px;
     padding: 16px 10px;
@@ -154,6 +154,10 @@ input[type=text][type=number]{
     flex-flow: column nowrap;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: 1fr .5fr 1fr;
+}
 
 /* $satin-sheen-gold: #c8963eff;
 $dark-moss-green: #52602eff;
