@@ -56,7 +56,7 @@ $catList .= '</select>';
                     <h4>Unit:</h4>
                     <?php
 
-                        $statement = $db->query('SELECT * FROM unit');
+                        $statement = $db->query('SELECT * FROM unit ORDER BY unit_name');
 
                         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
                         {
