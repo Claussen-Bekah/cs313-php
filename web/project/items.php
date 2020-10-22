@@ -2,30 +2,6 @@
 
 include("connect.php");
 
-function dataConnect() {
-    try
-{
-  $dbUrl = getenv('DATABASE_URL');
-
-  $dbOpts = parse_url($dbUrl);
-
-  $dbHost = $dbOpts["host"];
-  $dbPort = $dbOpts["port"];
-  $dbUser = $dbOpts["user"];
-  $dbPassword = $dbOpts["pass"];
-  $dbName = ltrim($dbOpts["path"],'/');
-
-  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch (PDOException $ex)
-{
-  echo 'Error!: ' . $ex->getMessage();
-  die();
-}
-}
-
 
 $catList = "<select name='categoryId' id='categoryId'><option disabled selected value> -- select an option -- </option>";
     foreach ($db->query('SELECT id, category_name FROM category') as $category){
@@ -40,22 +16,6 @@ $catList = "<select name='categoryId' id='categoryId'><option disabled selected 
 $catList .= '</select>';
 
 
-function newItem($itemName, $itemNumber, $unitId, $categoryId) {
-
-    $db = dataConnect();
-
-    $sql = 'INSERT INTO item (item_description, current_amount, unit_id, category_id)
-        VALUES (:itemName, :itemNumber, :unitId, :categoryId)';
-
-    $stmt = $db->prepare($sql);
-   
-    $stmt->bindValue(':itemName', $itemName, PDO::PARAM_STR);
-    $stmt->bindValue(':itemNumber', $itemNumber, PDO::PARAM_INT);
-    $stmt->bindValue(':unitId', $unitId, PDO::PARAM_INT);
-    $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
-    $stmt->execute();
- 
-}
 
 
 ?>
@@ -119,7 +79,7 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
 
 <h2>Add a new item</h2>
 
-<form method="POST">
+<form method="POST" action="newitem.php">
     <input type="text" name="item">
     <input type="number" name="amount">
     
@@ -159,20 +119,6 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
     <input type="submit" name="submitItem">
 </form>
 
-<?php
-
-
-    if(isset($_POST['submitItem'])){  
-        $itemName = $_POST['item'];
-        $itemNumber = $_POST['amount'];
-        $unitId = $_POST['unit'];
-        $categoryId = $_POST['category'];
-
-        newItem($itemName, $itemNumber, $unitId, $categoryId);
-    }
-
-
-?>
 
 <h2>All Items</h2>
 
