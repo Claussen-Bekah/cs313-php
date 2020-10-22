@@ -43,44 +43,44 @@ $itemList = "<select name='itemId' id='itemId'><option disabled selected value> 
 $itemList .= '</select>';
 
 
-$listName = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-$listDate = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING);
+// $listName = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+// $listDate = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING);
 
-function newList($listName, $listDate) {
+// function newList($listName, $listDate) {
 
-    $db = dataConnect();
+//     $db = dataConnect();
 
-    $sql = 'INSERT INTO list (list_name, creation_date)
-        VALUES (:listName, :listDate)';
+//     $sql = 'INSERT INTO list (list_name, creation_date)
+//         VALUES (:listName, :listDate)';
 
-    $stmt = $db->prepare($sql);
+//     $stmt = $db->prepare($sql);
    
-    $stmt->bindValue(':listName', $listName, PDO::PARAM_STR);
-    $stmt->bindValue(':listDate', $listDate, PDO::PARAM_STR);
+//     $stmt->bindValue(':listName', $listName, PDO::PARAM_STR);
+//     $stmt->bindValue(':listDate', $listDate, PDO::PARAM_STR);
 
-    $stmt->execute();
+//     $stmt->execute();
 
-    $listId = $db->lastInsertId("id_seq");
+//     $listId = $db->lastInsertId("id_seq");
 
  
-}
+// }
 
-function newItem($itemId, $listId) {
+// function newItem($itemId, $listId) {
 
-    $db = dataConnect();
+//     $db = dataConnect();
 
-    $sql = 'INSERT INTO listitem (item_id, list_id)
-        VALUES (:itemId, :listId)';
+//     $sql = 'INSERT INTO listitem (item_id, list_id)
+//         VALUES (:itemId, :listId)';
 
-    $stmt = $db->prepare($sql);
+//     $stmt = $db->prepare($sql);
    
-    $stmt->bindValue(':itemId', $itemId, PDO::PARAM_STR);
-    $stmt->bindValue(':listId', $listId, PDO::PARAM_STR);
+//     $stmt->bindValue(':itemId', $itemId, PDO::PARAM_STR);
+//     $stmt->bindValue(':listId', $listId, PDO::PARAM_STR);
 
-    $stmt->execute();
+//     $stmt->execute();
 
  
-}
+// }
 
 
 
