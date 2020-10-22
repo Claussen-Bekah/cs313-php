@@ -78,7 +78,7 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
     if(isset($_POST['submitItem'])) {
         newItem($itemName, $itemNumber, $unitId, $categoryId);
     } ?>
-    <h4><?php echo $itemName?> successfully added</h4>
+    <h2><?php echo $itemName?> successfully added</h2>
     <a href="items.php" class="backBtn"><-- Go Back</a>
 </body>
 </html>
