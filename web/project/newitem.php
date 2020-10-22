@@ -47,8 +47,8 @@ catch (PDOException $ex)
 //   }
 
 $itemName = filter_input(INPUT_POST, 'item', FILTER_SANITIZE_STRING);
-$itemNumber = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_INT);
-$unitId = filter_input(INPUT_POST, 'unit', FILTER_SANITIZE_INT);
+$itemNumber = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_STRING);
+$unitId = filter_input(INPUT_POST, 'unit', FILTER_SANITIZE_STRING);
 $categoryId = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
 
 function newItem($itemName, $itemNumber, $unitId, $categoryId) {
