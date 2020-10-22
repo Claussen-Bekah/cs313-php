@@ -47,8 +47,10 @@ $catList .= '</select>';
             <h2>Add a new item</h2>
 
             <form method="POST" action="newitem.php">
-                <label for="item">Item Name:</label><input type="text" name="item">
-                <label for="amount">Item Amount:</label><input type="number" name="amount">
+                <div class="columnFlex">
+                    <label for="item">Item Name:<input type="text" name="item"></label>
+                    <label for="amount">Item Amount:<input type="number" name="amount"></label>
+                </div>
                 <div class="radioDiv">
                     <h4>Unit:</h4>
                     <?php

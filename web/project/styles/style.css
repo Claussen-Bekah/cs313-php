@@ -39,13 +39,10 @@ h1 {
 li,
 h2,
 h3,
-h4 {
+h4, label {
     font-family: "Open Sans"
 }
 
-label {
-    font-family: "Abril Fatface";
-}
 
 h4 {
     margin-top: 0;
@@ -110,7 +107,7 @@ select {
 }
 
 
-.categoryForm {
+.categoryForm, .columnFlex {
     display: flex;
     flex-flow: column nowrap;
     margin-top: 20px;
