@@ -116,6 +116,9 @@ select {
     margin-top: 20px;
 }
 
+.categoryForm label {
+    margin-bottom: 20px;
+}
 
 
 input[type=submit] {
@@ -137,9 +140,13 @@ input[type=submit]:hover {
     background-color: #403d39ff;
 }
 
-input[type=text]{
+input[type=text][type=number]{
     max-width: 200px;
     margin: 10px;
+    padding: 16px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: white;
 }
 
 
