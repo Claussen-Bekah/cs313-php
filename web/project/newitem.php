@@ -1,6 +1,7 @@
 <?php
 
 function dataConnect() {
+$db = NULL;
     try
 {
   $dbUrl = getenv('DATABASE_URL');
@@ -22,6 +23,8 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
+
+return $db;
 }
  
 
@@ -31,12 +34,24 @@ $itemNumber = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_STRING);
 $unitId = filter_input(INPUT_POST, 'unit', FILTER_SANITIZE_STRING);
 $categoryId = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
 
+function newItem($itemName, $itemNumber, $unitId, $categoryId) {
 
+    $db = dataConnect();
 
-    
+    $sql = 'INSERT INTO item (item_description, current_amount, unit_id, category_id)
+        VALUES (:itemName, :itemNumber, :unitId, :categoryId)';
+
+    $stmt = $db->prepare($sql);
+   
+    $stmt->bindValue(':itemName', $itemName, PDO::PARAM_STR);
+    $stmt->bindValue(':itemNumber', $itemNumber, PDO::PARAM_STR);
+    $stmt->bindValue(':unitId', $unitId, PDO::PARAM_STR);
+    $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_STR);
+
+    $stmt->execute();
 
  
-
+}
 
 
 
@@ -55,20 +70,8 @@ $categoryId = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
 <body>
     <?php
     if(isset($_POST['submitItem'])) {
-        $db = dataConnect();
-
-        $sql = 'INSERT INTO item (item_description, current_amount, unit_id, category_id)
-            VALUES (:itemName, :itemNumber, :unitId, :categoryId)';
-
-        $stmt = $db->prepare($sql);
-    
-        $stmt->bindValue(':itemName', $itemName, PDO::PARAM_STR);
-        $stmt->bindValue(':itemNumber', $itemNumber, PDO::PARAM_STR);
-        $stmt->bindValue(':unitId', $unitId, PDO::PARAM_STR);
-        $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_STR);
-
-        $stmt->execute();
+        newItem($itemName, $itemNumber, $unitId, $categoryId);
     } ?>
-    <p><?php echo $itemName?> successfully added</p>
+    <p><?php echo $itemName?>successfully added</p>
 </body>
 </html>
