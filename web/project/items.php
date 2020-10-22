@@ -4,7 +4,7 @@ include("connect.php");
 
 
 $catList = "<select name='categoryId' id='categoryId'><option disabled selected value> -- select an option -- </option>";
-    foreach ($db->query('SELECT id, category_name FROM category') as $category){
+    foreach ($db->query('SELECT id, category_name FROM category ORDER BY category_name') as $category){
 
         $categoryListId = $category['id'];
         $categoryName = $category['category_name'];
@@ -107,7 +107,7 @@ $catList .= '</select>';
 
                     $categoryId = $_POST['categoryId'];
 
-                    $stmt = $db->prepare('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id WHERE category.id = :categoryId ORDER BY category_name');
+                    $stmt = $db->prepare('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id WHERE category.id = :categoryId');
                     $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
                     $stmt->execute();
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
