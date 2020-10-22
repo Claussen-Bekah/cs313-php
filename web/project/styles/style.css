@@ -172,6 +172,11 @@ h2 {
     margin-bottom: 5px;
 }
 
+.backBtn {
+    font-size: 1.5;
+    margin-top: 20px;
+}
+
 /* $satin-sheen-gold: #c8963eff;
 $dark-moss-green: #52602eff;
 $old-lace: #fffaebff;
