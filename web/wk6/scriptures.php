@@ -29,12 +29,13 @@ $book = htmlspecialchars($_POST['book']);
 $chapter = htmlspecialchars($_POST['chapter']);
 $verse = htmlspecialchars($_POST['verse']);
 $content = htmlspecialchars($_POST['book']);
+$topicId = htmlspecialchars($_POST['topic[]']);
 
 
-function addScriptures($book, $chapter, $verse, $content) {
+function addScriptures($book, $chapter, $verse, $content, $topicId) {
     $db = dbconnect();
 
-    $sql = 'INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)';
+    $sql = 'INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content); INSERT INTO scripturetopic (scripture_id, topic_id) VALUES (:scripture_id, :topicId);';
 
     $stmt = $db->prepare($sql);
    
@@ -42,6 +43,7 @@ function addScriptures($book, $chapter, $verse, $content) {
     $stmt->bindValue(':chapter', $chapter, PDO::PARAM_INT);
     $stmt->bindValue(':verse', $verse, PDO::PARAM_INT);
     $stmt->bindValue(':content', $content, PDO::PARAM_STR);
+    $stmt->bindValue(':topic', $topic, PDO::PARAM_STR);
 
     $stmt->execute();
 
