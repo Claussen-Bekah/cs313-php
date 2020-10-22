@@ -121,7 +121,7 @@ select {
 input[type=submit] {
     padding: 1em;
     margin-top: 20px;
-    max-width: 150px;
+    width: 150px;
     border-radius: 2em;
     border: none;
     text-decoration: none;
@@ -154,6 +154,12 @@ input[type=text], input[type=number]{
 .grid {
     display: grid;
     grid-template-columns: 1fr .5fr 1fr;
+}
+
+h2 {
+    color: #52602eff;
+    border-bottom: solid #403d39ff 1px;
+    padding: 3px;
 }
 
 /* $satin-sheen-gold: #c8963eff;

@@ -44,7 +44,7 @@ $catList .= '</select>';
 
     <div class="grid">
         <div class="grid1">
-            <h2>Add a new item</h2>
+            <h2>Add A New Item</h2>
 
             <form method="POST" action="newitem.php">
                 <div class="columnFlex">
@@ -95,7 +95,7 @@ $catList .= '</select>';
 
         <div class="grid2">
             <form class="categoryForm" method="post">
-                <label for="categoryId">Search by Category</label>
+                <label for="categoryId"><h2>Search by Category</h2></label>
                 <?php echo $catList; ?>
                 <input type="submit" value="Search" name="submit">
             </form>
