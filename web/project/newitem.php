@@ -52,8 +52,9 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
 
 
 
- 
-// newItem($itemName, $itemNumber, $unitId, $categoryId);
+    if(isset($_POST['submitItem'])) {
+        newItem($itemName, $itemNumber, $unitId, $categoryId);
+    }
 
 
 
