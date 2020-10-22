@@ -75,7 +75,7 @@ $catList .= '</select>';
                     <h4>Category</h4>
                     <?php
 
-                    $statement = $db->query('SELECT * FROM category');
+                    $statement = $db->query('SELECT * FROM category ORDER BY category_name');
 
                     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
                     {
@@ -138,7 +138,7 @@ $catList .= '</select>';
             <h2>All Items</h2>
 
             <?php
-        $statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id');
+        $statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id ORDER BY category_name, item_name');
 
         while ($newRow = $statement->fetch(PDO::FETCH_ASSOC))
         {
