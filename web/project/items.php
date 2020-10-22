@@ -80,9 +80,9 @@ $catList .= '</select>';
 <h2>Add a new item</h2>
 
 <form method="POST" action="newitem.php">
-    <input type="text" name="item">
-    <input type="number" name="amount">
-    
+    <label for="item">Item Name:</label><input type="text" name="item">
+    <label for="amount">Item Amount:</label><input type="number" name="amount">
+    <div class="radioDiv">
     <h4>Unit:</h4>
     <?php
 
@@ -100,6 +100,8 @@ $catList .= '</select>';
             }
 
         ?>
+        </div>
+        <div class="radioDiv">
     <h4>Category</h4>
     <?php
 
@@ -116,6 +118,7 @@ $catList .= '</select>';
         }
 
     ?>
+    </div>
     <input type="submit" name="submitItem">
 </form>
 

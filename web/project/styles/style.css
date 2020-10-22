@@ -116,13 +116,7 @@ select {
     margin-top: 20px;
 }
 
-form > * {
-    padding: 10px;
-}
 
-hr {
-    max-width: 200px;
-}
 
 input[type=submit] {
     padding: 1em;
