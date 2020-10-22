@@ -1,30 +1,32 @@
 <?php
 
 function dataConnect() {
-$db = NULL;
+
+    $db = NULL;
+
     try
-{
-  $dbUrl = getenv('DATABASE_URL');
+        {
+        $dbUrl = getenv('DATABASE_URL');
 
-  $dbOpts = parse_url($dbUrl);
+        $dbOpts = parse_url($dbUrl);
 
-  $dbHost = $dbOpts["host"];
-  $dbPort = $dbOpts["port"];
-  $dbUser = $dbOpts["user"];
-  $dbPassword = $dbOpts["pass"];
-  $dbName = ltrim($dbOpts["path"],'/');
+        $dbHost = $dbOpts["host"];
+        $dbPort = $dbOpts["port"];
+        $dbUser = $dbOpts["user"];
+        $dbPassword = $dbOpts["pass"];
+        $dbName = ltrim($dbOpts["path"],'/');
 
-  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+        $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch (PDOException $ex)
-{
-  echo 'Error!: ' . $ex->getMessage();
-  die();
-}
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+    catch (PDOException $ex)
+        {
+        echo 'Error!: ' . $ex->getMessage();
+    die();
+    }
 
-return $db;
+    return $db;
 }
  
 
@@ -55,10 +57,6 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
 
 
 
-    
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,12 +64,16 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
     <?php
     if(isset($_POST['submitItem'])) {
         newItem($itemName, $itemNumber, $unitId, $categoryId);
     } ?>
-    <p><?php echo $itemName?>successfully added</p>
+    <h1><?php echo $itemName?> successfully added</h1>
+    <a href="items.php" class="backBtn"><-- Go Back</a>
 </body>
 </html>

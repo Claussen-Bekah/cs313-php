@@ -42,7 +42,7 @@ $catList .= '</select>';
     <h1>Current Stocks</h1>
     <h4>at a glance</h4>
 
-    <form method="post">
+    <form class="categoryForm" method="post">
         <label for="categoryId">Search by Category</label>
         <?php echo $catList; ?>
         <input type="submit" value="Search" name="submit">
