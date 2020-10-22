@@ -162,8 +162,13 @@ h2 {
     padding: 3px;
 }
 
-.rowDiv {
+.rowFlex {
     display: flex;
+}
+
+.firstItem {
+    font-weight: 100;
+    color: #252422ff;
 }
 
 /* $satin-sheen-gold: #c8963eff;
