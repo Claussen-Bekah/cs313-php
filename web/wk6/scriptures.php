@@ -26,8 +26,8 @@ return $db;
 }
 
 $book = htmlspecialchars($_POST['book']);
-$chapter = htmlspecialchars($_POST['chapter']);
-$verse = htmlspecialchars($_POST['verse']);
+$chapter = (int)(htmlspecialchars($_POST['chapter']));
+$verse = (int)(htmlspecialchars($_POST['verse']));
 $content = htmlspecialchars($_POST['book']);
 $topicId = htmlspecialchars($_POST['topic[]']);
 
@@ -41,8 +41,8 @@ function addScriptures($book, $chapter, $verse, $content, $topicId) {
     $stmt = $db->prepare($sql);
    
     $stmt->bindValue(':book', $book, PDO::PARAM_STR);
-    $stmt->bindValue(':chapter', $chapter, PDO::PARAM_STR);
-    $stmt->bindValue(':verse', $verse, PDO::PARAM_STR);
+    $stmt->bindValue(':chapter', $chapter, PDO::PARAM_INT);
+    $stmt->bindValue(':verse', $verse, PDO::PARAM_INT);
     $stmt->bindValue(':content', $content, PDO::PARAM_STR);
     $stmt->bindValue(':topic', $topic, PDO::PARAM_STR);
 
