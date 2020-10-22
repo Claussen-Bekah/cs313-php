@@ -28,7 +28,7 @@ return $db;
 $book = htmlspecialchars($_POST['book']);
 $chapter = (int)(htmlspecialchars($_POST['chapter']));
 $verse = (int)(htmlspecialchars($_POST['verse']));
-$content = htmlspecialchars($_POST['book']);
+$content = htmlspecialchars($_POST['content']);
 $topicId = htmlspecialchars($_POST['topic[]']);
 
 
@@ -48,6 +48,26 @@ function addScriptures($book, $chapter, $verse, $content) {
     $stmt->execute();
 
 }
+
+function addTopics($book, $chapter, $verse) {
+
+    $db = dbconnect();
+
+    
+
+    $sql = 'INSERT INTO scripturetopic (scripture_id, topic_id) VALUES ((SELECT id FROM scriptures WHERE book=:book AND chapter=:chapter AND verse=:verse), :topicId);';
+
+    $stmt = $db->prepare($sql);
+   
+    $stmt->bindValue(':book', $book, PDO::PARAM_STR);
+    $stmt->bindValue(':chapter', $chapter, PDO::PARAM_INT);
+    $stmt->bindValue(':verse', $verse, PDO::PARAM_INT);
+    $stmt->bindValue(':content', $topicId, PDO::PARAM_STR);
+
+    $stmt->execute();
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,3 +91,4 @@ function addScriptures($book, $chapter, $verse, $content) {
 </html>
 
 <!-- INSERT INTO scripturetopic (scripture_id, topic_id) VALUES ((SELECT id FROM scriptures WHERE book=:book AND chapter=:chapter AND verse=:verse), :topicId); -->
+
