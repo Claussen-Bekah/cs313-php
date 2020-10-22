@@ -61,15 +61,14 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
     $stmt = $db->prepare($sql);
    
     $stmt->bindValue(':itemName', $itemName, PDO::PARAM_STR);
-    $stmt->bindValue(':itemNumber', $itemNumber, PDO::PARAM_INT);
-    $stmt->bindValue(':unitId', $unitId, PDO::PARAM_INT);
-    $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
+    $stmt->bindValue(':itemNumber', $itemNumber, PDO::PARAM_STR);
+    $stmt->bindValue(':unitId', $unitId, PDO::PARAM_STR);
+    $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_STR);
     $stmt->execute();
 
  
 }
 
-echo $itemName . $itemNumber . $unitId . $categoryId;
  
 newItem($itemName, $itemNumber, $unitId, $categoryId);
 
