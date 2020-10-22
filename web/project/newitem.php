@@ -1,4 +1,3 @@
-
 <?php
 
 function dataConnect() {
@@ -24,7 +23,33 @@ catch (PDOException $ex)
   die();
 }
 }
+ 
+ 
+//  // Check for missing data
+//  if(empty($invName) || empty($invDescription) || empty($invImage) || empty($invThumbnail) || empty($invPrice) || empty($invStock) || empty($invSize) || empty($invWeight) || empty($invLocation) || empty($invVendor) || empty($invStyle)){
+//    $message = '<p>Please provide information for all empty form fields.</p>';
+//    include '../view/newproduct.php';
+//    exit; 
+//   }
+ 
+//   // Send the data to the model
+//  $regOutcome = newProduct($invName, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invSize, $invWeight, $invLocation, $categoryId, $invVendor, $invStyle);
+ 
+//  // Check and report the result
+//  if($regOutcome === 1){
+//    $message = "<p>$invName has been added. Thank you.</p>";
+//    include '../view/newproduct.php';
+//    exit;
+//   } else {
+//    $message = "<p>Sorry. $invName was not added. Please try again.</p>";
+//    include '../view/newproduct.php';
+//    exit;
+//   }
 
+$itemName = filter_input(INPUT_POST, 'item', FILTER_SANITIZE_STRING);
+$itemNumber = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_INT);
+$unitId = filter_input(INPUT_POST, 'unit', FILTER_SANITIZE_INT);
+$categoryId = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
 
 function newItem($itemName, $itemNumber, $unitId, $categoryId) {
 
@@ -41,20 +66,12 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
     $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
     $stmt->execute();
 
-
  
 }
 
-
+echo $itemName . $itemNumber . $unitId . $categoryId;
  
-    $itemName = $_POST['item'];
-    $itemNumber = $_POST['amount'];
-    $unitId = $_POST['unit'];
-    $categoryId = $_POST['category'];
-
-    echo $itemName;
-
-    newItem($itemName, $itemNumber, $unitId, $categoryId);
+newItem($itemName, $itemNumber, $unitId, $categoryId);
 
 
 
