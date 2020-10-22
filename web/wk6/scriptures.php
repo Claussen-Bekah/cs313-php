@@ -32,7 +32,7 @@ $content = htmlspecialchars($_POST['book']);
 $topicId = htmlspecialchars($_POST['topic[]']);
 
 
-function addScriptures($book, $chapter, $verse, $content, $topicId) {
+function addScriptures($book, $chapter, $verse, $content) {
 
     $db = dbconnect();
 
@@ -44,7 +44,6 @@ function addScriptures($book, $chapter, $verse, $content, $topicId) {
     $stmt->bindValue(':chapter', $chapter, PDO::PARAM_INT);
     $stmt->bindValue(':verse', $verse, PDO::PARAM_INT);
     $stmt->bindValue(':content', $content, PDO::PARAM_STR);
-    $stmt->bindValue(':topic', $topic, PDO::PARAM_STR);
 
     $stmt->execute();
 
