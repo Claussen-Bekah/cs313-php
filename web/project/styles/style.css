@@ -149,6 +149,11 @@ input[type=text][type=number]{
     background-color: white;
 }
 
+.radioDiv {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
 
 /* $satin-sheen-gold: #c8963eff;
 $dark-moss-green: #52602eff;

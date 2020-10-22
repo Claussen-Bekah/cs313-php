@@ -93,8 +93,8 @@ $catList .= '</select>';
                 $unitId = $row['id'];
                 $name = $row['unit_name'];
                 
-                $unitList = "<label for='$unitId'>$name<input type='radio' id='$unitId' name='unit' value='$unitId'>
-                </label>";
+                $unitList = "<label for='$unitId'><input type='radio' id='$unitId' name='unit' value='$unitId'>
+                $name</label>";
 
                 echo $unitList;
             }
@@ -112,8 +112,8 @@ $catList .= '</select>';
             $categoryId = $row['id'];
             $categoryName = $row['category_name'];
 
-            $categoryList = "<label for='$categoryId'>$categoryName<input type='radio' id='$categoryId' name='category' value='$categoryId'>
-            </label>";
+            $categoryList = "<label for='$categoryId'><input type='radio' id='$categoryId' name='category' value='$categoryId'>
+            $categoryName</label>";
             echo $categoryList;
         }
 
