@@ -67,7 +67,7 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
 <body>
     <?php
     if(isset($_POST['submitItem'])) {
-        newItem($itemName, $itemNumber, $unitId, $categoryId);
+        echo $itemNumber;
     } ?>
     <p><?php echo $itemName?>successfully added</p>
 </body>
