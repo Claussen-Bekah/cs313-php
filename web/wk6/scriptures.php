@@ -1,6 +1,6 @@
 <?php
 function dbconnect() {
-    $db = NULL;
+$db = NULL;
     try
 {
 $dbUrl = getenv('DATABASE_URL');
@@ -33,10 +33,10 @@ $topicId = htmlspecialchars($_POST['topic[]']);
 
 
 function addScriptures($book, $chapter, $verse, $content, $topicId) {
-    
+
     $db = dbconnect();
 
-    $sql = 'INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content); INSERT INTO scripturetopic (scripture_id, topic_id) VALUES ((SELECT id FROM scriptures WHERE book=:book AND chapter=:chapter AND verse=:verse), :topicId);';
+    $sql = 'INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)';
 
     $stmt = $db->prepare($sql);
    
@@ -70,3 +70,5 @@ function addScriptures($book, $chapter, $verse, $content, $topicId) {
     
 </body>
 </html>
+
+<!-- INSERT INTO scripturetopic (scripture_id, topic_id) VALUES ((SELECT id FROM scriptures WHERE book=:book AND chapter=:chapter AND verse=:verse), :topicId); -->
