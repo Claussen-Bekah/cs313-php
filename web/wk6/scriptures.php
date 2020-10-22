@@ -33,9 +33,10 @@ $topicId = htmlspecialchars($_POST['topic[]']);
 
 
 function addScriptures($book, $chapter, $verse, $content, $topicId) {
+    
     $db = dbconnect();
 
-    $sql = 'INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content); INSERT INTO scripturetopic (scripture_id, topic_id) VALUES (:scripture_id, :topicId);';
+    $sql = 'INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content); INSERT INTO scripturetopic (scripture_id, topic_id) VALUES ((SELECT id FROM scriptures WHERE book=:book AND chapter=:chapter AND verse=:verse), :topicId);';
 
     $stmt = $db->prepare($sql);
    

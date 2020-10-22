@@ -31,18 +31,8 @@ die();
 </head>
 <body>
     <form method="POST" action="scriptures.php">
-        <?php
-             $statement = $db->query('SELECT id FROM scriptures');
-
-             while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-             {
-                 $scriptureId = $row['id'];
-                
-             }
- 
-        ?>
+        
         Book:<input type='text' name='book' id='book'>
-        <input type="hidden" name="scriptureId" value="<?php $scriptureId ?>">
         Chapter:<input type='text' name='chapter' id='chapter'>
         Verse:<input type="text" name='verse' id='verse'>
         Content:<input type='textarea' name='content' id='content'>
