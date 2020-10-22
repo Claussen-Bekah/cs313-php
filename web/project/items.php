@@ -107,7 +107,7 @@ $catList .= '</select>';
 
                     $categoryId = $_POST['categoryId'];
 
-                    $stmt = $db->prepare('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id WHERE category.id = :categoryId');
+                    $stmt = $db->prepare('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id WHERE category.id = :categoryId ORDER BY category_name');
                     $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
                     $stmt->execute();
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
