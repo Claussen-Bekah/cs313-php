@@ -33,8 +33,6 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
     $sql = 'INSERT INTO item (item_description, current_amount, unit_id, category_id)
         VALUES (:itemName, :itemNumber, :unitId, :categoryId)';
 
-        echo $sql;
-
     $stmt = $db->prepare($sql);
    
     $stmt->bindValue(':itemName', $itemName, PDO::PARAM_STR);
@@ -53,6 +51,8 @@ function newItem($itemName, $itemNumber, $unitId, $categoryId) {
     $itemNumber = $_POST['amount'];
     $unitId = $_POST['unit'];
     $categoryId = $_POST['category'];
+
+    echo $itemName;
 
     newItem($itemName, $itemNumber, $unitId, $categoryId);
 
