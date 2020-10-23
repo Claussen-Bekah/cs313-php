@@ -65,6 +65,8 @@ function newList($listName, $listDate) {
 
     $listId = $db->lastInsertId("list_id_seq");
 
+    echo $listId;
+
 }
 
 function newItem($itemId, $listId, $amount) {
