@@ -110,9 +110,10 @@ function newItem($itemId, $listId, $amount) {
     <?php
     if(isset($_POST['submit'])) {
         newList($listName, $listDate);
+        echo "<h2>$listName successfully added</h2>";
 
     } ?>
-    <h2><?php echo $listName?> successfully added</h2>
+
 
     <h2>Add Items to List</h2>
 
@@ -128,6 +129,7 @@ function newItem($itemId, $listId, $amount) {
                 if(isset($_POST['submitItem'])){ 
                     
                     echo $listId;
+                    echo "Your mother smells of elderberries";
 
                     $itemId = $_POST['itemId'];
                     $amount = $_POST['amount'];
