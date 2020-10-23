@@ -47,6 +47,7 @@ $itemList .= '</select>';
 
 $listName = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 $listDate = date("Y/m/d");
+$listId;
 
 function newList($listName, $listDate) {
 
@@ -66,17 +67,19 @@ function newList($listName, $listDate) {
 
 }
 
-function newItem($itemId, $listId) {
+function newItem($itemId, $listId, $amount) {
 
     $db = dataConnect();
 
-    $sql = 'INSERT INTO listitem (item_id, list_id)
-        VALUES (:itemId, :listId)';
+    $sql = 'INSERT INTO listitem (item_id, list_id, buy_amount)
+        VALUES (:itemId, :listId, :amount)';
 
     $stmt = $db->prepare($sql);
    
     $stmt->bindValue(':itemId', $itemId, PDO::PARAM_STR);
     $stmt->bindValue(':listId', $listId, PDO::PARAM_STR);
+    $stmt->bindValue(':amount', $amount, PDO::PARAM_STR);
+
 
     $stmt->execute();
 
@@ -122,8 +125,9 @@ function newItem($itemId, $listId) {
                 if(isset($_POST['submitItem'])){   
 
                     $itemId = $_POST['itemId'];
+                    $amount = $_POST['amount'];
 
-                    newItem($itemId, $listId);
+                    newItem($itemId, $listId, $amount);
                     
                 }   
 
