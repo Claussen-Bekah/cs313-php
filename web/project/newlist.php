@@ -47,7 +47,6 @@ $itemList .= '</select>';
 
 $listName = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 $listDate = date("Y/m/d");
-$listId;
 
 function newList($listName, $listDate) {
 
@@ -63,7 +62,7 @@ function newList($listName, $listDate) {
 
     $stmt->execute();
 
-    $listId = $db->lastInsertId("list_id_seq");
+    return $db->lastInsertId("list_id_seq");
 
     
 
@@ -109,7 +108,7 @@ function newItem($itemId, $listId, $amount) {
 
     <?php
     if(isset($_POST['submit'])) {
-        newList($listName, $listDate);
+       $listId = newList($listName, $listDate);
         echo "<h2>$listName successfully added</h2>";
 
     } ?>
@@ -129,13 +128,11 @@ function newItem($itemId, $listId, $amount) {
     <?php
                 if(isset($_POST['submitItem'])){ 
                     
-                    
 
                     $itemId = $_POST['itemId'];
                     $amount = $_POST['amount'];
                     $listId = $_POST['listId'];
 
-                    echo $listId;
 
                     newItem($itemId, $listId, $amount);
                     
