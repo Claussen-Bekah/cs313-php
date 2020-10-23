@@ -47,6 +47,7 @@ $itemList .= '</select>';
 
 $listName = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 $listDate = date("Y/m/d");
+$listId;
 
 function newList($listName, $listDate) {
 
