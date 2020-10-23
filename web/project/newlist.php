@@ -65,7 +65,7 @@ function newList($listName, $listDate) {
 
     $listId = $db->lastInsertId("list_id_seq");
 
-    echo $listId;
+    
 
 }
 
@@ -110,6 +110,7 @@ function newItem($itemId, $listId, $amount) {
     <?php
     if(isset($_POST['submit'])) {
         newList($listName, $listDate);
+
     } ?>
     <h2><?php echo $listName?> successfully added</h2>
 
@@ -124,7 +125,9 @@ function newItem($itemId, $listId, $amount) {
     </form>
 
     <?php
-                if(isset($_POST['submitItem'])){   
+                if(isset($_POST['submitItem'])){ 
+                    
+                    echo $listId;
 
                     $itemId = $_POST['itemId'];
                     $amount = $_POST['amount'];
