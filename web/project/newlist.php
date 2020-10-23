@@ -120,6 +120,7 @@ function newItem($itemId, $listId, $amount) {
     <form class="categoryForm" method="POST">
         <?php echo $itemList; ?>
         <label for="date">Buy Amount:<input type="number" name="amount"></label>
+        <input type="hidden" name="listId" value="<?php $listId ?>">
 
         <input type="submit" name="submitItem">
 
@@ -128,11 +129,13 @@ function newItem($itemId, $listId, $amount) {
     <?php
                 if(isset($_POST['submitItem'])){ 
                     
-                    echo $listId;
-                    echo "Your mother smells of elderberries";
+                    
 
                     $itemId = $_POST['itemId'];
                     $amount = $_POST['amount'];
+                    $listId = $_POST['listId'];
+
+                    echo $listId;
 
                     newItem($itemId, $listId, $amount);
                     
