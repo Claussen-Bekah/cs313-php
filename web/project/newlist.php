@@ -46,7 +46,7 @@ $itemList .= '</select>';
 
 
 $listName = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-$listDate = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING);
+$listDate = date("Y/m/d");
 
 function newList($listName, $listDate) {
 
@@ -58,13 +58,12 @@ function newList($listName, $listDate) {
     $stmt = $db->prepare($sql);
    
     $stmt->bindValue(':listName', $listName, PDO::PARAM_STR);
-    $stmt->bindValue(':listDate', $listDate, PDO::PARAM_STR);
+    $stmt->bindValue(':listDate', $listDate);
 
     $stmt->execute();
 
-    $listId = $db->lastInsertId("id_seq");
+    $listId = $db->lastInsertId("list_id_seq");
 
- 
 }
 
 function newItem($itemId, $listId) {
@@ -115,12 +114,12 @@ function newItem($itemId, $listId) {
         <?php echo $itemList; ?>
         <label for="date">Buy Amount:<input type="number" name="amount"></label>
 
-        <input type="submit" name="submit">
+        <input type="submit" name="submitItem">
 
     </form>
 
     <?php
-                if(isset($_POST['submit'])){   
+                if(isset($_POST['submitItem'])){   
 
                     $itemId = $_POST['itemId'];
 
@@ -131,6 +130,10 @@ function newItem($itemId, $listId) {
             ?>
 
     <a href="list.php" class="backBtn"><-- Go Back</a>
+
+    <script>
+        history.pushState({}, "", "")
+    </script>
     
 </body>
 </html>

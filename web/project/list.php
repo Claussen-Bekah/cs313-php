@@ -42,7 +42,6 @@ include("connect.php");
     <h2>Add New List</h2>
     <form method="POST" action="newlist.php">
         <label for="name">Grocery List Name:<input type="text" name="name"></label>
-        <label for="date">Creation Date:<input type="date" name="date"></label>
 
         <input type="submit" name="submit">
 
