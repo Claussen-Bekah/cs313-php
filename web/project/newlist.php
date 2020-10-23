@@ -120,7 +120,7 @@ function newItem($itemId, $listId, $amount) {
     <form class="categoryForm" method="POST">
         <?php echo $itemList; ?>
         <label for="date">Buy Amount:<input type="number" name="amount"></label>
-        <input type="hidden" name="listId" value="<?php $listId ?>">
+        <input type="hidden" name="listId" value="<?php echo $listId; ?>">
 
         <input type="submit" name="submitItem">
 
