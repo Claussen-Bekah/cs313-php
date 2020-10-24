@@ -128,7 +128,6 @@ function newItem($itemId, $listId, $amount) {
                 $listId = $_POST['listId'];
 
                 deleteList($listId);
-                echo "<meta http-equiv='refresh' content='0'>";                
             }
 
         }
@@ -154,7 +153,6 @@ function newItem($itemId, $listId, $amount) {
                     $listItemId = $_POST['listItemId'];
 
                     deleteItem($listItemId);
-                    echo "<meta http-equiv='refresh' content='0'>";
                 }
 
 
