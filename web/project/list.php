@@ -27,12 +27,6 @@ include("functions.php");
     <h4>at a glance</h4>
 
     <?php
-                    if (isset($message)) {
-                    echo $message;
-                    }
-            ?>
-
-    <?php
         $statement = $db->query('SELECT id, list_name, creation_date FROM list');
 
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))

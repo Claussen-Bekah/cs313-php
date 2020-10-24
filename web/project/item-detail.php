@@ -43,7 +43,6 @@ $list_id = $_GET['id'];
 
                 deleteList($listId);
 
-                
                 header('location: list.php');
             }
 
@@ -70,6 +69,9 @@ $list_id = $_GET['id'];
                     $listItemId = $_POST['listItemId'];
 
                     deleteItem($listItemId);
+
+                    header('location: item-detail.php');
+
                 }
 
 
@@ -96,7 +98,8 @@ $list_id = $_GET['id'];
 
                     addItem($itemId, $listId, $amount);
 
-                    include 'item-detail.php';
+                    header('location: item-detail.php');
+
                     
                 }   
 
