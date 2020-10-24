@@ -99,6 +99,8 @@ $list_id = $_GET['id'];
 
                     addItem($itemId, $listId, $amount);
 
+                    header('location: item-detail.php?id=' . $listId);
+
                     
                 }   
 
