@@ -117,7 +117,7 @@ select {
     margin-bottom: 20px;
 }
 
-.deleteBtn {
+ul li .deleteBtn {
     padding: .5em;
     margin-top: 5px;
 }
