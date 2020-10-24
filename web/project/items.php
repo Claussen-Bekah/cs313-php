@@ -148,7 +148,7 @@ include("functions.php");
 
             deleteItem($itemId);
 
-            header('location: items.php?id=1');
+            header("Refresh:0");
              
         }
 
