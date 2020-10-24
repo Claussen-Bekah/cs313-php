@@ -59,6 +59,19 @@ function deleteItem($listItemId) {
 
 }
 
+function deleteList($listId) {
+
+    $db = dataConnect();
+
+    $sql = 'DELETE FROM list WHERE id = :listId';
+    $stmt = $db->prepare($sql);
+  
+    $stmt->bindValue(':listId', $listId, PDO::PARAM_INT); 
+
+    $stmt->execute();
+
+}
+
 function newItem($itemId, $listId, $amount) {
 
     $db = dataConnect();
@@ -107,6 +120,17 @@ function newItem($itemId, $listId, $amount) {
 
         if(!$rows){
             echo '<p class="error">No items found</p>';
+            echo '<h4>Delete List?</h4><form method="POST"><input class="deleteBtn" type="submit" name="deleteList" value="Delete"><input type="hidden" name="listId" value="'. $list_id . '">
+            </form>';
+
+            if(isset($_POST['deleteList'])){ 
+
+                $listId = $_POST['listId'];
+
+                deleteList($listId);
+                
+            }
+
         }
         else {
 
@@ -115,7 +139,7 @@ function newItem($itemId, $listId, $amount) {
                 $toBuy = $row['buy_amount'];
                 $listItemId = $row['id'];
 
-            $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li><li><form method="POST"><input type="submit" name="deleteItem" value="Delete"><input type="hidden" name="listItemId" value="'. $listItemId . '">
+            $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li><li><form method="POST"><input class="deleteBtn" type="submit" name="deleteItem" value="Delete"><input type="hidden" name="listItemId" value="'. $listItemId . '">
             </form></li></ul>';
 
             echo $searchDetails;
@@ -136,6 +160,7 @@ function newItem($itemId, $listId, $amount) {
 
     ?>
 
+<h2>Add New Item</h2>
 <form class="categoryForm" method="POST">
         <?php echo $itemList; ?>
         <label for="date">Buy Amount:<input type="number" name="amount"></label>
@@ -154,7 +179,7 @@ function newItem($itemId, $listId, $amount) {
                     $listId = $_POST['listId'];
 
 
-                    newItem($itemId, $list_id, $amount);
+                    newItem($itemId, $listId, $amount);
                     
                 }   
 
