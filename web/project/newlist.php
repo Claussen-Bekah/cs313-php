@@ -111,10 +111,8 @@ function newItem($itemId, $listId, $amount) {
     if(isset($_POST['submit'])) {
        $listId = newList($listName, $listDate);
         echo "<h2>$listName successfully added</h2>";
-        echo $listId;
     } ?>
 
-<?php echo $listId; ?>
     <h2>Add Items to List</h2>
 
     <form class="categoryForm" method="POST">
