@@ -26,7 +26,7 @@
 <div class="mainHeaders">
 <h1>Welcome to Cache</h1>
 <h2 class="frontPage">Food Storage Management: A Better Way</h2>
-<h3>Track all your food storage, make grocery lists, update</h3>
+<h3>Track all your food storage and make lists</h3>
 </div>
 
 </main>
