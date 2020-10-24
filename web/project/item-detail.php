@@ -107,9 +107,9 @@ $list_id = $_GET['id'];
 
    
 
-<script>
+<!-- <script>
         history.pushState({}, "", "")
-    </script>
+    </script> -->
 
 </body>
 </html>
