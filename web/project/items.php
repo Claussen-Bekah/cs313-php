@@ -148,7 +148,7 @@ include("functions.php");
 
             deleteItem($itemId);
 
-            header('location: items.php?id=#');
+            header('location: items.php?id=1');
              
         }
 
