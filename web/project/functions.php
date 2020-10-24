@@ -128,4 +128,17 @@ function deleteItem($listItemId) {
 
 }
 
+function deleteList($listId) {
+
+    $db = dataConnect();
+
+    $sql = 'DELETE FROM list WHERE id = :listId';
+    $stmt = $db->prepare($sql);
+  
+    $stmt->bindValue(':listId', $listId, PDO::PARAM_INT); 
+
+    $stmt->execute();
+
+}
+
 
