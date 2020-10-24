@@ -31,5 +31,6 @@ $categoryId = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
     } ?>
     <h3><?php echo $itemName?> successfully added</h3>
     <a href="items.php" class="backBtn"><-- Go Back</a>
+
 </body>
 </html>

@@ -111,57 +111,6 @@ $list_id = $_GET['id'];
             ?>
 
         </div>
-        <div class="grid3">
-            <h2>Add A New Item</h2>
-
-            <form method="POST" action="newitem.php">
-                <div class="columnFlex">
-                    <label for="item">Item Name:<input type="text" name="item"></label>
-                    <label for="amount">Item Amount:<input type="number" name="amount"></label>
-                </div>
-                <div class="rowFlex">
-                    <div class="radioDiv">
-                        <h4>Unit:</h4>
-                        <?php
-
-                        $statement = $db->query('SELECT * FROM unit ORDER BY unit_name');
-
-                        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-                        {
-                            $unitId = $row['id'];
-                            $name = $row['unit_name'];
-                            
-                            $unitList = "<label for='$unitId'><input type='radio' id='$unitId' name='unit' value='$unitId'>
-                            $name</label>";
-
-                            echo $unitList;
-                        }
-
-                    ?>
-                    </div>
-                    <div class="radioDiv">
-                        <h4>Category</h4>
-                        <?php
-
-                    $statement = $db->query('SELECT * FROM category ORDER BY category_name');
-
-                    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-                    {
-                    $categoryId = $row['id'];
-                    $categoryName = $row['category_name'];
-
-                    $categoryList = "<label for='$categoryId'><input type='radio' id='$categoryId' name='category' value='$categoryId'>
-                    $categoryName</label>";
-                    echo $categoryList;
-                    }
-
-                    ?>
-                    </div>
-                </div>
-                <input type="submit" name="submitItem">
-            </form>
-
-        </div>
 
 
 
