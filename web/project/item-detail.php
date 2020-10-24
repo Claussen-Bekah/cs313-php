@@ -113,7 +113,7 @@ function newItem($itemId, $listId, $amount) {
     <h1>Your Grocery List</h1>
 
     <?php
-       $stmt = $db->prepare('SELECT * FROM listitem JOIN list ON listitem.list_id=list.id JOIN item ON listitem.item_id=item.id WHERE listitem.list_id = :list_id');
+       $stmt = $db->prepare('SELECT *, listitem.id AS listitem_id FROM listitem JOIN list ON listitem.list_id=list.id JOIN item ON listitem.item_id=item.id WHERE listitem.list_id = :list_id');
        $stmt->bindValue(':list_id', $list_id, PDO::PARAM_INT);
        $stmt->execute();
        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -136,7 +136,7 @@ function newItem($itemId, $listId, $amount) {
             foreach ($rows as $row) {
                 $description = $row['item_description'];
                 $toBuy = $row['buy_amount'];
-                $listItemId = $row['listitem.id'];
+                $listItemId = $row['listitem_id'];
 
             $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li><li><form method="POST"><input class="deleteBtn" type="submit" name="deleteItem" value="Delete"><input type="hidden" name="listItemId" value="'. $listItemId . '">
             </form></li></ul>';
