@@ -25,7 +25,8 @@ $list_id = $_GET['id'];
     </header>
 
     <h1>Your Grocery List</h1>
-
+    <div class="grid">
+        <div class="grid1">
     <?php
        $stmt = $db->prepare('SELECT *, listitem.id AS listitem_id FROM listitem JOIN list ON listitem.list_id=list.id JOIN item ON listitem.item_id=item.id WHERE listitem.list_id = :list_id');
        $stmt->bindValue(':list_id', $list_id, PDO::PARAM_INT);
@@ -77,6 +78,8 @@ $list_id = $_GET['id'];
 
 
     ?>
+    </div>
+    <div class="grid2">
 
 <h2>Add New Item</h2>
 <form class="categoryForm" method="POST">
@@ -106,7 +109,8 @@ $list_id = $_GET['id'];
 
     ?>
 
-   
+            </div>
+            </div>
 
 <script>
         history.pushState({}, "", "")

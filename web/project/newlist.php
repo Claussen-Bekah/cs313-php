@@ -29,10 +29,10 @@ $listId;
     <?php
     if(isset($_POST['submit'])) {
        $listId = newList($listName, $listDate);
-        echo "<h2>$listName successfully added</h2>";
+        echo "<h4>$listName successfully added</h4>";
     } ?>
 
-    <h2>Add Items to List</h2>
+    <h4>Add Items to List</h4>
 
     <form class="categoryForm" method="POST">
         <?php echo $itemList; ?>

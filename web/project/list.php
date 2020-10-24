@@ -26,6 +26,8 @@ include("functions.php");
     <h1>Current Lists</h1>
     <h4>at a glance</h4>
 
+    <div class="grid">
+        <div class="grid1">
     <?php
         $statement = $db->query('SELECT id, list_name, creation_date FROM list');
 
@@ -41,7 +43,9 @@ include("functions.php");
         }
 
     ?>
+    </div>
 
+    <div class="grid2">
     <h2>Add New List</h2>
     <form method="POST" action="newlist.php">
         <label for="name">Grocery List Name:<input type="text" name="name"></label>
@@ -49,6 +53,8 @@ include("functions.php");
         <input type="submit" name="submit">
 
     </form>
+    </div>
+    </div>
 
 </body>
 </html>

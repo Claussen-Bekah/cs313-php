@@ -29,7 +29,7 @@ $categoryId = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
     if(isset($_POST['submitItem'])) {
         newItem($itemName, $itemNumber, $unitId, $categoryId);
     } ?>
-    <h2><?php echo $itemName?> successfully added</h2>
+    <h4><?php echo $itemName?> successfully added</h4>
     <a href="items.php" class="backBtn"><-- Go Back</a>
 </body>
 </html>
