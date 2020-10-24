@@ -70,8 +70,6 @@ $list_id = $_GET['id'];
 
                     deleteItem($listItemId);
 
-                    header('location: item-detail.php');
-
                 }
 
 
@@ -97,8 +95,6 @@ $list_id = $_GET['id'];
 
 
                     addItem($itemId, $listId, $amount);
-
-                    header('location: item-detail.php');
 
                     
                 }   
