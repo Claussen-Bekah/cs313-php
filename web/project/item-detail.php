@@ -54,7 +54,7 @@ $list_id = $_GET['id'];
                 $toBuy = $row['buy_amount'];
                 $listItemId = $row['listitem_id'];
 
-            $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li><li><form method="POST"><input class="deleteBtn" type="submit" name="deleteItem" value="Delete"><input type="hidden" name="listItemId" value="'. $listItemId . '">
+            $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li><li><form method="POST"><input class="deleteBtn" type="submit" name="deleteItem" value="Delete"><input type="hidden" name="listItemId" value="'. $listItemId . '"><input type="hidden" name="listId" value="'. $list_id . '">
             </form></li></ul>';
 
             echo $searchDetails;
@@ -67,9 +67,12 @@ $list_id = $_GET['id'];
                 if(isset($_POST['deleteItem'])){ 
 
                     $listItemId = $_POST['listItemId'];
+                    $listItemId = $_POST['listId'];
 
                     deleteItem($listItemId);
 
+                    header('location: item-detail.php?id=' . $listId);
+                     
                 }
 
 
@@ -103,9 +106,9 @@ $list_id = $_GET['id'];
 
    
 
-<!-- <script>
+<script>
         history.pushState({}, "", "")
-    </script> -->
+</script>
 
 </body>
 </html>
