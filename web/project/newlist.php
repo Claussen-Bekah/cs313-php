@@ -53,6 +53,8 @@ $listId;
 
 
                     addItem($itemId, $listId, $amount);
+
+                    header('location: item-detail.php?id=' . $listId);
                     
                 }   
 
