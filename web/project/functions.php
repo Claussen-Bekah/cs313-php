@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 
 $catList = "<select name='categoryId' id='categoryId'><option disabled selected value> -- select an option -- </option>";
     foreach ($db->query('SELECT id, category_name FROM category ORDER BY category_name') as $category){
