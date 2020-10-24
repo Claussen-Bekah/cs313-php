@@ -67,7 +67,7 @@ $list_id = $_GET['id'];
                 if(isset($_POST['deleteItem'])){ 
 
                     $listItemId = $_POST['listItemId'];
-                    $listItemId = $_POST['listId'];
+                    $listId = $_POST['listId'];
 
                     deleteItem($listItemId);
 
