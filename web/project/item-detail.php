@@ -128,6 +128,8 @@ function newItem($itemId, $listId, $amount) {
                 $listId = $_POST['listId'];
 
                 deleteList($listId);
+
+                include 'list.php';
                 
             }
 
@@ -154,6 +156,8 @@ function newItem($itemId, $listId, $amount) {
                     $listItemId = $_POST['listItemId'];
 
                     deleteItem($listItemId);
+
+                    include 'item-detail.php';
                     
                 }
 
@@ -180,6 +184,8 @@ function newItem($itemId, $listId, $amount) {
 
 
                     newItem($itemId, $listId, $amount);
+
+                    include 'item-detail.php';
                     
                 }   
 
