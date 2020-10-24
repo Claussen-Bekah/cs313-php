@@ -115,7 +115,7 @@ function addItem($itemId, $listId, $amount) {
  
 }
 
-function deleteItem($listItemId) {
+function deleteListItem($listItemId) {
 
     $db = dataConnect();
 
@@ -127,6 +127,18 @@ function deleteItem($listItemId) {
     $stmt->execute();
 
 }
+
+function deleteItem($itemId) {
+    $db = dataConnect();
+
+    $sql = 'DELETE FROM item WHERE id = :itemId';
+    $stmt = $db->prepare($sql);
+  
+    $stmt->bindValue(':itemId', $itemId, PDO::PARAM_INT); 
+
+    $stmt->execute();
+}
+
 
 function deleteList($listId) {
 

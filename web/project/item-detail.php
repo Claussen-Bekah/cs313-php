@@ -69,7 +69,7 @@ $list_id = $_GET['id'];
                     $listItemId = $_POST['listItemId'];
                     $listId = $_POST['listId'];
 
-                    deleteItem($listItemId);
+                    deleteListItem($listItemId);
 
                     header('location: item-detail.php?id=' . $listId);
                      

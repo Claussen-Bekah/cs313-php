@@ -126,7 +126,7 @@ include("functions.php");
             <h2>All Items</h2>
 
             <?php
-        $statement = $db->query('SELECT * FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id ORDER BY category_name, item_description');
+        $statement = $db->query('SELECT *, item.id AS item_id FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id ORDER BY category_name, item_description');
 
         while ($newRow = $statement->fetch(PDO::FETCH_ASSOC))
         {
@@ -134,8 +134,10 @@ include("functions.php");
             $amount = $newRow['current_amount'];
             $unit = $newRow['unit_name'];
             $categoryName = $newRow['category_name'];
+            $itemId = $newRow['item_id'];
 
-            $itemDetails = '<ul><li class="firstItem">' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li></ul>';
+            $itemDetails = '<ul><li class="firstItem">' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li><li><form method="POST"><input class="deleteBtn" type="submit" name="deleteItem" value="Delete"><input type="hidden" name="listItemId" value="'. $itemId . '">
+            </form></li></ul>';
 
             echo $itemDetails;
         }
