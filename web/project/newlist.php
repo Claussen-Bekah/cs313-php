@@ -29,7 +29,7 @@ $listId;
     <?php
     if(isset($_POST['submit'])) {
        $listId = newList($listName, $listDate);
-        echo "<h4>$listName successfully added</h4>";
+        echo "<h3>$listName successfully added</h3>";
     } ?>
 
     <h4>Add Items to List</h4>

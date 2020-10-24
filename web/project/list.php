@@ -35,9 +35,6 @@ include("functions.php");
 
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
         {
-            if(!$row){
-                echo '<p class="error">No items found</p>';
-            } else {
             $listId = $row['id'];
             $listName = $row['list_name'];
             $creationDate = $row['creation_date'];
@@ -45,7 +42,7 @@ include("functions.php");
             $itemDetails = '<ul class="itemList"><li>Name: ' . $listName . '</li><li>Date Created: ' . $creationDate. '</li><li><a href="item-detail.php?id=' . $listId . '">See List Details</a></li></ul>';
 
             echo $itemDetails;
-            }
+            
         }
 
     ?>
