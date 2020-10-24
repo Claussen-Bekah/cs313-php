@@ -1,19 +1,7 @@
 <?php
 
 include("connect.php");
-
-
-$catList = "<select name='categoryId' id='categoryId'><option disabled selected value> -- select an option -- </option>";
-    foreach ($db->query('SELECT id, category_name FROM category ORDER BY category_name') as $category){
-
-        $categoryListId = $category['id'];
-        $categoryName = $category['category_name'];
-
-        $catList .= "<option value='$categoryListId'";
-        
-        $catList.= ">$categoryName</option>";
-    }
-$catList .= '</select>';
+include("functions.php");
 
 
 
