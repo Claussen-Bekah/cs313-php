@@ -4,6 +4,66 @@ include("connect.php");
 
 $list_id = $_GET['id'];
 
+function dataConnect() {
+
+    $db = NULL;
+
+    try
+        {
+        $dbUrl = getenv('DATABASE_URL');
+
+        $dbOpts = parse_url($dbUrl);
+
+        $dbHost = $dbOpts["host"];
+        $dbPort = $dbOpts["port"];
+        $dbUser = $dbOpts["user"];
+        $dbPassword = $dbOpts["pass"];
+        $dbName = ltrim($dbOpts["path"],'/');
+
+        $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+    catch (PDOException $ex)
+        {
+        echo 'Error!: ' . $ex->getMessage();
+    die();
+    }
+
+    return $db;
+}
+
+function deleteItem($listItemId) {
+
+    $db = dataConnect();
+    $sql = 'DELETE FROM listitem WHERE listItemId = :listItemId';
+    $stmt = $db->prepare($sql);
+  
+    $stmt->bindValue(':listItemId', $listItemId, PDO::PARAM_INT); 
+
+    $stmt->execute();
+
+}
+
+function newItem($itemId, $listId, $amount) {
+
+    $db = dataConnect();
+
+    $sql = 'INSERT INTO listitem (item_id, list_id, buy_amount)
+        VALUES (:itemId, :listId, :amount)';
+
+    $stmt = $db->prepare($sql);
+   
+    $stmt->bindValue(':itemId', $itemId, PDO::PARAM_STR);
+    $stmt->bindValue(':listId', $listId, PDO::PARAM_STR);
+    $stmt->bindValue(':amount', $amount, PDO::PARAM_STR);
+
+
+    $stmt->execute();
+
+ 
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,13 +99,26 @@ $list_id = $_GET['id'];
             foreach ($rows as $row) {
                 $description = $row['item_description'];
                 $toBuy = $row['buy_amount'];
+                $listItemId = $row['id'];
 
-            $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li><li><form method="POST"><input type="submit" name="deleteItem" value="Delete"><input type="hidden" name="listId" value="'. $list_id . '">
+            $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li><li><form method="POST"><input type="submit" name="deleteItem" value="Delete"><input type="hidden" name="listItemId" value="'. $listItemId . '">
             </form></li></ul>';
 
             echo $searchDetails;
        }
     }
+
+    ?>
+
+    <?php
+                if(isset($_POST['deleteItem'])){ 
+
+                    $listItemId = $_POST['listItemId'];
+
+                    deleteItem($listItemId);
+                    
+                }
+
 
     ?>
 
