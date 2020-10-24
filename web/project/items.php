@@ -136,10 +136,20 @@ include("functions.php");
             $categoryName = $newRow['category_name'];
             $itemId = $newRow['item_id'];
 
-            $itemDetails = '<ul><li class="firstItem">' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li><li><form method="POST"><input class="deleteBtn" type="submit" name="deleteItem" value="Delete"><input type="hidden" name="listItemId" value="'. $itemId . '">
+            $itemDetails = '<ul><li class="firstItem">' . $description . '</li><li>Amount: ' . $amount . ' ' . $unit . '</li><li>Category: ' . $categoryName . '</li><li><form method="POST"><input class="deleteBtn" type="submit" name="deleteItem" value="Delete"><input type="hidden" name="itemId" value="'. $itemId . '">
             </form></li></ul>';
 
             echo $itemDetails;
+        }
+
+        if(isset($_POST['deleteItem'])){ 
+
+            $itemId = $_POST['itemId'];
+
+            deleteItem($itemId);
+
+            header('location: items.php');
+             
         }
 
     ?>
