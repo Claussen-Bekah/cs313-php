@@ -136,7 +136,7 @@ function newItem($itemId, $listId, $amount) {
             foreach ($rows as $row) {
                 $description = $row['item_description'];
                 $toBuy = $row['buy_amount'];
-                $listItemId = $row['id'];
+                $listItemId = $row['listitem.id'];
 
             $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li><li><form method="POST"><input class="deleteBtn" type="submit" name="deleteItem" value="Delete"><input type="hidden" name="listItemId" value="'. $listItemId . '">
             </form></li></ul>';
