@@ -125,7 +125,19 @@ include("functions.php");
         <div class="grid3">
             <h2>All Items</h2>
 
+            
+
             <?php
+
+if(isset($_POST['deleteItem'])){ 
+
+    $itemId = $_POST['itemId'];
+
+    deleteItem($itemId);
+
+    header("Refresh:0");
+     
+}
         $statement = $db->query('SELECT *, item.id AS item_id FROM item JOIN category ON item.category_id=category.id JOIN unit ON item.unit_id=unit.id ORDER BY category_name, item_description');
 
         while ($newRow = $statement->fetch(PDO::FETCH_ASSOC))
@@ -142,15 +154,7 @@ include("functions.php");
             echo $itemDetails;
         }
 
-        if(isset($_POST['deleteItem'])){ 
-
-            $itemId = $_POST['itemId'];
-
-            deleteItem($itemId);
-
-            header("Refresh:0");
-             
-        }
+       
 
     ?>
         </div>
