@@ -40,7 +40,8 @@ $list_id = $_GET['id'];
                 $description = $row['item_description'];
                 $toBuy = $row['buy_amount'];
 
-            $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li><li><form method="POST"><input type="submit" name="deleteItem" value="Delete"></form></li></ul>';
+            $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li><li><form method="POST"><input type="submit" name="deleteItem" value="Delete"><input type="hidden" name="listId" value="'. $list_id . '">
+            </form></li></ul>';
 
             echo $searchDetails;
        }
@@ -51,7 +52,7 @@ $list_id = $_GET['id'];
 <form class="categoryForm" method="POST">
         <?php echo $itemList; ?>
         <label for="date">Buy Amount:<input type="number" name="amount"></label>
-        <input type="hidden" name="listId" value="<?php echo $listId; ?>">
+        <input type="hidden" name="listId" value="<?php echo $list_id; ?>">
 
         <input type="submit" name="submitItem">
 
@@ -63,6 +64,7 @@ $list_id = $_GET['id'];
 
                     $itemId = $_POST['itemId'];
                     $amount = $_POST['amount'];
+                    $listId = $_POST['listId'];
 
 
                     newItem($itemId, $list_id, $amount);
