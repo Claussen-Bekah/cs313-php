@@ -43,8 +43,7 @@ $list_id = $_GET['id'];
 
                 deleteList($listId);
 
-                $message = "<p class='notice'>List successfully deleted.</p>";
-                $_SESSION['message'] = $message;
+                
                 header('location: list.php');
             }
 
