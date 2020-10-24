@@ -54,7 +54,7 @@ $list_id = $_GET['id'];
                 $toBuy = $row['buy_amount'];
                 $listItemId = $row['listitem_id'];
 
-            $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li><li><form method="POST"><input class="deleteBtn" type="submit" name="deleteItem" value="Delete"><input type="hidden" name="listItemId" value="'. $listItemId . '"><input type="hidden" name="listId" value="'. $list_id . '">
+            $searchDetails = '<ul class="itemList"><li>Item: ' . $description . '</li><li>Buy Amount: ' . $toBuy . '</li><li><form method="POST"><input class="deleteBtn" type="submit" name="deleteListItem" value="Delete"><input type="hidden" name="listItemId" value="'. $listItemId . '"><input type="hidden" name="listId" value="'. $list_id . '">
             </form></li></ul>';
 
             echo $searchDetails;
@@ -64,7 +64,7 @@ $list_id = $_GET['id'];
     ?>
 
     <?php
-                if(isset($_POST['deleteItem'])){ 
+                if(isset($_POST['deleteListItem'])){ 
 
                     $listItemId = $_POST['listItemId'];
                     $listId = $_POST['listId'];

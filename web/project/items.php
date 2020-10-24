@@ -147,8 +147,6 @@ include("functions.php");
             $itemId = $_POST['itemId'];
 
             deleteItem($itemId);
-
-            header('location: items.php');
              
         }
 
