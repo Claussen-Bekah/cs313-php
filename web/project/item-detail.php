@@ -33,10 +33,24 @@ function dataConnect() {
     return $db;
 }
 
+$itemList = "<select name='itemId' id='itemId'><option disabled selected value> -- select an option -- </option>";
+    foreach ($db->query('SELECT id, item_description FROM item ORDER BY item_description') as $item){
+
+        $itemId = $item['id'];
+        $itemName = $item['item_description'];
+
+        $itemList .= "<option value='$itemId'";
+        
+        $itemList.= ">$itemName</option>";
+    }
+$itemList .= '</select>';
+
+
 function deleteItem($listItemId) {
 
     $db = dataConnect();
-    $sql = 'DELETE FROM listitem WHERE listItemId = :listItemId';
+
+    $sql = 'DELETE FROM listitem WHERE id = :listItemId';
     $stmt = $db->prepare($sql);
   
     $stmt->bindValue(':listItemId', $listItemId, PDO::PARAM_INT); 
