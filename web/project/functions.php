@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-$catList = "<select name='categoryId' id='categoryId'><option disabled selected value> -- select an option -- </option>";
+$catList = "<select name='categoryId' id='categoryId' required><option disabled selected value> -- select an option -- </option>";
     foreach ($db->query('SELECT id, category_name FROM category ORDER BY category_name') as $category){
 
         $categoryListId = $category['id'];
@@ -13,7 +13,7 @@ $catList = "<select name='categoryId' id='categoryId'><option disabled selected 
     }
 $catList .= '</select>';
 
-$itemList = "<select name='itemId' id='itemId'><option disabled selected value> -- select an option -- </option>";
+$itemList = "<select name='itemId' id='itemId' required><option disabled selected value> -- select an option -- </option>";
     foreach ($db->query('SELECT id, item_description FROM item ORDER BY item_description') as $item){
 
         $itemId = $item['id'];
