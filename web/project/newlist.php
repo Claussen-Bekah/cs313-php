@@ -35,8 +35,8 @@ $listId;
     <h4>Add Items to List</h4>
 
     <form class="categoryForm" method="POST">
-        <?php echo $itemList; ?><span class="alert"> *</span>
-        <label for="date">Buy Amount:<input type="number" name="amount" required><span class="alert"> *</span></label>
+        <?php echo $itemList; ?>
+        <label for="date">Buy Amount:<input type="number" name="amount" required></label>
         <input type="hidden" name="listId" value="<?php echo $listId; ?>">
 
         <input type="submit" name="submitItem">
