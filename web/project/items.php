@@ -36,12 +36,12 @@ include("functions.php");
 
             <form method="POST" action="newitem.php">
                 <div class="columnFlex">
-                    <label for="item">Item Name:<span class="alert">*</span><input type="text" name="item" required></label>
-                    <label for="amount">Item Amount:<span class="alert">*</span><input type="number" name="amount" required></label>
+                    <label for="item">Item Name:<input type="text" name="item" required></label><span class="alert"> *</span>
+                    <label for="amount">Item Amount:<input type="number" name="amount" required></label><span class="alert"> *</span>
                 </div>
                 <div class="rowFlex">
                 <div class="radioDiv">
-                    <h4>Unit:<span class="alert">*</span></h4>
+                    <h4>Unit:<span class="alert"> *</span></h4>
                     <?php
 
                         $statement = $db->query('SELECT * FROM unit ORDER BY unit_name');
@@ -60,7 +60,7 @@ include("functions.php");
                     ?>
                 </div>
                 <div class="radioDiv">
-                    <h4>Category:<span class="alert">*</span></h4>
+                    <h4>Category:<span class="alert"> *</span></h4>
                     <?php
 
                     $statement = $db->query('SELECT * FROM category ORDER BY category_name');
