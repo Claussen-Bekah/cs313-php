@@ -136,6 +136,7 @@ include("functions.php");
                 deleteItem($itemId);
 
                 header("Refresh:0");
+                die();
                 
             }
             
