@@ -47,14 +47,15 @@ $listId;
                 if(isset($_POST['submitItem'])){ 
                     
 
-                    $itemId = $_POST['itemId'];
-                    $amount = $_POST['amount'];
-                    $listId = $_POST['listId'];
+                    $itemId = filter_input(INPUT_POST, 'itemId', FILTER_SANITIZE_STRING);
+                    $amount = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_STRING);
+                    $listId = filter_input(INPUT_POST, 'listId', FILTER_SANITIZE_STRING);;
 
 
                     addItem($itemId, $listId, $amount);
 
                     header('location: item-detail.php?id=' . $listId);
+                    die();
                     
                 }   
 

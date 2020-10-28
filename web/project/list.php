@@ -31,7 +31,6 @@ include("functions.php");
     <?php
         $statement = $db->query('SELECT id, list_name, creation_date FROM list');
 
-        
 
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
         {
