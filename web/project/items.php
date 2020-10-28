@@ -36,8 +36,8 @@ include("functions.php");
 
             <form method="POST" action="newitem.php">
                 <div class="columnFlex">
-                    <label for="item">Item Name:<input type="text" name="item" required></label><span class="alert"> *</span>
-                    <label for="amount">Item Amount:<input type="number" name="amount" required></label><span class="alert"> *</span>
+                    <label for="item">Item Name:<input type="text" name="item" required><span class="alert"> *</span></label>
+                    <label for="amount">Item Amount:<input type="number" name="amount" required><span class="alert"> *</span></label>
                 </div>
                 <div class="rowFlex">
                 <div class="radioDiv">

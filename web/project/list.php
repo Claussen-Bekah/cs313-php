@@ -50,7 +50,7 @@ include("functions.php");
     <div class="grid2">
     <h2>Add New List</h2>
     <form method="POST" action="newlist.php">
-        <label for="name">Grocery List Name:<input type="text" name="name"></label>
+        <label for="name">Grocery List Name:<input type="text" name="name" required><span class="alert"> *</span></label>
 
         <input type="submit" name="submit">
 
