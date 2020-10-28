@@ -188,6 +188,11 @@ h2 {
     margin-top: 20px;
 }
 
+.alert {
+    color: red;
+    padding-left: 1px;
+}
+
 
 
 /* $satin-sheen-gold: #c8963eff;
