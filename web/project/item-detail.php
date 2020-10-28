@@ -3,7 +3,7 @@
 include("connect.php");
 include("functions.php");
 
-$list_id = $_GET['id'];
+$list_id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);;
 
 ?>
 <!DOCTYPE html>
@@ -41,11 +41,12 @@ $list_id = $_GET['id'];
 
             if(isset($_POST['deleteList'])){ 
 
-                $listId = $_POST['listId'];
+                $listId = filter_input(INPUT_POST, 'listId', FILTER_SANITIZE_NUMBER_INT);
 
                 deleteList($listId);
 
                 header('location: list.php');
+                die();
             }
 
         }
@@ -68,12 +69,13 @@ $list_id = $_GET['id'];
             <?php
                 if(isset($_POST['deleteListItem'])){ 
 
-                    $listItemId = $_POST['listItemId'];
-                    $listId = $_POST['listId'];
+                    $listItemId = filter_input(INPUT_POST, 'listItemId', FILTER_SANITIZE_NUMBER_INT);
+                    $listId = filter_input(INPUT_POST, 'listId', FILTER_SANITIZE_NUMBER_INT);
 
                     deleteListItem($listItemId);
 
                     header('location: item-detail.php?id=' . $listId);
+                    die();
                      
                 }
 
@@ -96,15 +98,15 @@ $list_id = $_GET['id'];
                 if(isset($_POST['submitItem'])){ 
                     
 
-                    $itemId = $_POST['itemId'];
-                    $amount = $_POST['amount'];
-                    $listId = $_POST['listId'];
+                    $itemId = filter_input(INPUT_POST, 'itemId', FILTER_SANITIZE_NUMBER_INT);
+                    $amount = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_NUMBER_INT);
+                    $listId = filter_input(INPUT_POST, 'listId', FILTER_SANITIZE_NUMBER_INT);
 
 
                     addItem($itemId, $listId, $amount);
 
                     header('location: item-detail.php?id=' . $listId);
-
+                    die();
                     
                 }   
 

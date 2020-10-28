@@ -4,9 +4,9 @@ include("connect.php");
 include("functions.php");
 
 $itemName = filter_input(INPUT_POST, 'item', FILTER_SANITIZE_STRING);
-$itemNumber = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_STRING);
-$unitId = filter_input(INPUT_POST, 'unit', FILTER_SANITIZE_STRING);
-$categoryId = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
+$itemNumber = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_NUMBER_INT);
+$unitId = filter_input(INPUT_POST, 'unit', FILTER_SANITIZE_NUMBER_INT);
+$categoryId = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_NUMBER_INT);
 
 ?>
 <!DOCTYPE html>

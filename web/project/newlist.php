@@ -47,9 +47,9 @@ $listId;
                 if(isset($_POST['submitItem'])){ 
                     
 
-                    $itemId = filter_input(INPUT_POST, 'itemId', FILTER_SANITIZE_STRING);
-                    $amount = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_STRING);
-                    $listId = filter_input(INPUT_POST, 'listId', FILTER_SANITIZE_STRING);;
+                    $itemId = filter_input(INPUT_POST, 'itemId', FILTER_SANITIZE_NUMBER_INT);
+                    $amount = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_NUMBER_INT);
+                    $listId = filter_input(INPUT_POST, 'listId', FILTER_SANITIZE_NUMBER_INT);;
 
 
                     addItem($itemId, $listId, $amount);
