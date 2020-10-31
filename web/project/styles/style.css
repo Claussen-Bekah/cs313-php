@@ -59,7 +59,7 @@ h4 {
 
 a {
     text-decoration: none;
-    color: #6c3338;
+    color: #93ab9b;
     background-color: none;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -134,7 +134,7 @@ input[type=submit] {
     text-decoration: none;
     font-family: 'Open Sans';
     color: #FFFFFF;
-    background-color: #6c3338;
+    background-color: #fe9c0d;
     text-align: center;
     transition: all 0.2s;
 }
