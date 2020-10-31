@@ -5,10 +5,6 @@ body {
     
 }
 
-.frontBody {
-    background-color: #dfe8ef;
-}
-
 
 @media only screen and (min-width: 600px){
 
@@ -21,13 +17,11 @@ body {
 
 @media only screen and (min-width: 1400px){
 
-    .frontBody {
-        background-color: #f6eee2;
-    }
+   
 
     body{
     
-    background-image: url(../images/grains.png);
+    background-image: url(../images/dsktp-bck.jpg);
     background-position: top right;
     background-repeat: no-repeat;
 }

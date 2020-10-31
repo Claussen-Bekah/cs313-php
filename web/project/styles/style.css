@@ -6,7 +6,7 @@ html {
 body {
     width: 95%;
     margin: auto;
-    background-color: #f6eee2;
+    background-color: #dfe8ef;
 }
 
 ul {
@@ -59,7 +59,7 @@ h4 {
 
 a {
     text-decoration: none;
-    color: #52602eff;
+    color: #d83a34;
     background-color: none;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -134,7 +134,7 @@ input[type=submit] {
     text-decoration: none;
     font-family: 'Open Sans';
     color: #FFFFFF;
-    background-color: #52602eff;
+    background-color: #d83a34;
     text-align: center;
     transition: all 0.2s;
 }
@@ -168,7 +168,7 @@ input[type=text], input[type=number]{
 }
 
 h2 {
-    color: #52602eff;
+    color: #d83a34;
     border-bottom: solid #403d39ff 1px;
     padding: 3px;
 }
