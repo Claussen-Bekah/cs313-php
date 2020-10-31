@@ -59,7 +59,7 @@ h4 {
 
 a {
     text-decoration: none;
-    color: #93ab9b;
+    color: #6f896e;
     background-color: none;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -80,7 +80,7 @@ a {
 }
 
 a:hover {
-    color: #fe9c0d;
+    color: #ffa369;
 }
 
 ul:not(nav ul) {
@@ -88,7 +88,7 @@ ul:not(nav ul) {
 }
 
 nav ul li {
-    border-bottom: 2px #fe9c0d solid;
+    border-bottom: 2px #ffa369 solid;
     padding: 10px;
 }
 
@@ -96,7 +96,7 @@ nav ul li {
 
 .error {
     font-size: 1.25em;
-    color: #fe9c0d;
+    color: #ffa369;
     font-family: "Open Sans";
     font-weight: 100;
 }
@@ -134,7 +134,7 @@ input[type=submit] {
     text-decoration: none;
     font-family: 'Open Sans';
     color: #FFFFFF;
-    background-color: #fe9c0d;
+    background-color: #ffa369;
     text-align: center;
     transition: all 0.2s;
 }
@@ -168,7 +168,7 @@ input[type=text], input[type=number]{
 }
 
 h2 {
-    color: #6c3338;
+    color: #6f896e;
     border-bottom: solid #403d39ff 1px;
     padding: 3px;
 }
