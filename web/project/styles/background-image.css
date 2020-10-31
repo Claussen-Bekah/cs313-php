@@ -2,6 +2,7 @@ body {
     background-image: url(../images/web-bck.jpg);
     background-position: center bottom;
     background-repeat: no-repeat;
+    background-color: #dfe8ef;
     
 }
 
@@ -31,3 +32,4 @@ body {
     background-repeat: no-repeat;
 }
 }
+
