@@ -6,6 +6,10 @@ html {
 
 
 @media only screen and (min-width: 600px){
+
+    html {
+        background-image: none;
+    }
     body{
         background-image: url(../images/tablet-bck.jpg);
         background-position: top right;
@@ -14,7 +18,11 @@ html {
     }
 
 @media only screen and (min-width: 1400px){
-body{
+    html {
+        background-image: none;
+    }
+    body{
+    
     background-image: url(../images/grains.png);
     background-position: top right;
     background-repeat: no-repeat;
