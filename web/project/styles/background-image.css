@@ -2,16 +2,15 @@ body {
     background-image: url(../images/web-bck.jpg);
     background-position: center bottom;
     background-repeat: no-repeat;
-    background-color: #dfe8ef;
     
+}
+
+.frontBody {
+    background-color: #dfe8ef;
 }
 
 
 @media only screen and (min-width: 600px){
-
-    html {
-        background-image: none;
-    }
 
     body{
         background-image: url(../images/tablet-bck.jpg);
@@ -21,8 +20,9 @@ body {
     }
 
 @media only screen and (min-width: 1400px){
-    html {
-        background-image: none;
+
+    .frontBody {
+        background-color: #f6eee2;
     }
 
     body{

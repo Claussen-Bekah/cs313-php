@@ -14,7 +14,7 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="frontBody">
 
     <header>
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/project/header.php'; ?>
