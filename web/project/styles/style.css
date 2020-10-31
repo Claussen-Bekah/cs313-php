@@ -156,10 +156,7 @@ input[type=text], input[type=number]{
     padding-right: 20px;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: .5fr .5fr .5fr;
-}
+
 
 .frontPage {
     color: black;
@@ -179,6 +176,8 @@ h2 {
 
 .firstItem {
     font-weight: bold;
+    border-bottom: 1px solid black;
+    padding-bottom: 2px;
     margin-bottom: 5px;
 }
 
@@ -192,6 +191,13 @@ h2 {
     color: red;
 }
 
+
+@media only screen and (min-width: 600px) {
+    .grid {
+        display: grid;
+        grid-template-columns: .5fr .5fr .5fr;
+    }
+}
 
 
 /* $satin-sheen-gold: #c8963eff;
